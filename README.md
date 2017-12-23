@@ -7,3 +7,6 @@ Here will record my blogs about the study of new tech or how to solve problems I
 1. [《代码大全》关于重构的章节内容概要](https://github.com/lq920320/blogs/issues/1)
 1. [翻译：What Is The Difference Between Artificial Intelligence And Machine Learning?](https://github.com/lq920320/blogs/issues/3)
 1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
+1. [机器学习第二篇翻译——人工智能与机器学习的不同之处](https://github.com/lq920320/blogs/issues/3)
+
+
