@@ -12,4 +12,4 @@ Here will record my blogs about the study of new tech or how to solve problems I
 1. [null-safe-date-comparator-for-sorting-in-java-8-stream](https://stackoverflow.com/questions/36361156/null-safe-date-comparator-for-sorting-in-java-8-stream/36361302#36361302)      
 1. [elasticsearch 错误日志为乱码的问题](https://github.com/lq920320/blogs/issues/7)
 1. [mysql查询合并查询结果](https://github.com/lq920320/blogs/issues/8)
-
+1. [Java read json file demo](https://github.com/lq920320/read-json-demo)
