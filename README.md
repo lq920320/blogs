@@ -13,3 +13,4 @@ Here will record my blogs about the study of new tech or how to solve problems I
 1. [elasticsearch 错误日志为乱码的问题](https://github.com/lq920320/blogs/issues/7)
 1. [mysql查询合并查询结果](https://github.com/lq920320/blogs/issues/8)
 1. [Java read json file demo](https://github.com/lq920320/read-json-demo)
+1. [Translation of *Migrating to Python 3 with pleasure*](https://github.com/lq920320/python3_with_pleasure/blob/master/README_CN.md)
