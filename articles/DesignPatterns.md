@@ -86,7 +86,7 @@ tags: Java 设计原则 设计模式
 
 通用类图如下：
 
-<img src='images/abstrcat-factory.png' />
+<img src='images/abstract-factory.png' />
 
 #### 3. 建造者模式（Builder Factory）
 
