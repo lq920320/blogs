@@ -80,6 +80,17 @@ tags: Java 设计原则 设计模式
 
 <img src='images/factory.png' />
 
+工厂模式分为三种：    
+1. 简单工厂模式（Simple Factory） 
+1. 工厂方法模式（Factory Method） 
+1. 抽象工厂模式（Abstract Factory）
+
+[简单工厂模式(Simple Factory Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/simple_factory.html)：又称为静态工厂方法(Static Factory Method)模式，它属于类创建型模式。在简单工厂模式中，可以根据参数的不同返回不同类的实例。简单工厂模式专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。
+
+[工厂方法模式(Factory Method Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/factory_method.html):又称为工厂模式，也叫虚拟构造器(Virtual Constructor)模式或者多态工厂(Polymorphic Factory)模式，它属于类创建型模式。在工厂方法模式中，工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实例化操作延迟到工厂子类中完成，即通过工厂子类来确定究竟应该实例化哪一个具体产品类。
+
+下一节会具体介绍抽象工厂模式。
+
 #### 2. 抽象工厂模式（Abstract Factory）
 
 抽象工厂模式提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们的具体类。
@@ -88,6 +99,10 @@ tags: Java 设计原则 设计模式
 
 <img src='images/abstract-factory.png' />
 
+[抽象工厂模式(Abstract Factory Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/abstract_factory.html)
+
+也可参考：https://juejin.im/entry/58f5e080b123db2fa2b3c4c6
+
 #### 3. 建造者模式（Builder Factory）
 
 建造者模式将一个复杂对象的构建与他的表示相分离，使得同样的构建过程可以创建不同的表示。
@@ -95,6 +110,8 @@ tags: Java 设计原则 设计模式
 通用类图如下：
 
 <img src='images/builder.png' />
+
+[造者模式(Builder Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/builder.html)，它是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。建造者模式属于对象创建型模式。根据中文翻译的不同，建造者模式又可以称为生成器模式。
 
 #### 4. 原型模式（Prototype）
 
@@ -114,6 +131,8 @@ tags: Java 设计原则 设计模式
 
 <img src='images/singleton.png' />
 
+[单例模式（Singleton）](https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/singleton.html)
+
 #### *结构性模式*
 用于构建类间的关系。如何设计对象的结构、继承和依赖关系会影响到后续程序的维护性，代码的健壮性、耦合性等。
 #### 6. 适配器模式（Adapter）
@@ -125,6 +144,10 @@ tags: Java 设计原则 设计模式
 
 <img src='images/adapter.png' />
 
+[适配器模式(Adapter Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/structural_patterns/adapter.html) ：将一个接口转换成客户希望的另一个接口，适配器模式使接口不兼容的那些类可以一起工作，其别名为包装器(Wrapper)。适配器模式既可以作为类结构型模式，也可以作为对象结构型模式。
+
+这里有一个很好的[例子](http://blog.csdn.net/carson_ho/article/details/54910430).
+
 #### 7. 桥接模式（Bridge）
 
 桥接模式将抽象部分与实现部分分离，使它们都可以独立变化。
@@ -132,6 +155,8 @@ tags: Java 设计原则 设计模式
 通用类图如下：
 
 <img src='images/bridge.png' />
+
+[桥接模式(Bridge Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/structural_patterns/bridge.html)它是一种对象结构型模式,又称为柄体(Handle and Body)模式或接口(Interface)模式。
 
 #### 8. 代理模式（Proxy）
 
@@ -141,9 +166,19 @@ tags: Java 设计原则 设计模式
 
 <img src='images/proxy.png' />
 
+动态代理
+
+- 动态代理是一种较为高级的代理模式，它的典型应用就是Spring AOP。
+- 在传统的代理模式中，客户端通过Proxy调用RealSubject类的request()方法，同时还在代理类中封装了其他方法(如preRequest()和postRequest())，可以处理一些其他问题。
+- 如果按照这种方法使用代理模式，那么真实主题角色必须是事先已经存在的，并将其作为代理对象的内部成员属性。如果一个真实主题角色必须对应一个代理主题角色，这将导致系统中的类个数急剧增加，因此需要想办法减少系统中类的个数，此外，如何在事先不知道真实主题角色的情况下使用代理主题角色，这都是动态代理需要解决的问题。
+
 动态代理通用类图如下：
 
 <img src='images/dynamic-proxy.png' />
+
+[代理模式(Proxy Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/structural_patterns/proxy.html#id4)文叫做Proxy或Surrogate，它是一种对象结构型模式。
+
+[打怪升级理解代理模式](http://www.cnblogs.com/cbf4life/archive/2010/01/27/1657438.html).
 
 #### 9. 外观模式（Facade）
 
@@ -152,6 +187,8 @@ tags: Java 设计原则 设计模式
 通用类图如下：
 
 <img src='images/facade.png' />
+
+[外观模式(Facade Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/structural_patterns/facade.html)：外观模式又称为门面模式，它是一种对象结构型模式。
 
 #### 10. 装饰模式（Decorator）
 
@@ -162,6 +199,8 @@ tags: Java 设计原则 设计模式
 通用类图如下：
 
 <img src='images/decorator.png' />
+
+[装饰模式(Decorator Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/structural_patterns/decorator.html) ：动态地给一个对象增加一些额外的职责(Responsibility)，就增加对象功能来说，装饰模式比生成子类实现更为灵活。其别名也可以称为包装器(Wrapper)，与适配器模式的别名相同，但它们适用于不同的场合。根据翻译的不同，装饰模式也有人称之为“油漆工模式”，它是一种对象结构型模式。
 
 #### 11. 组合模式（Composite）
 
@@ -179,6 +218,8 @@ tags: Java 设计原则 设计模式
 
 <img src='images/flyweight.png' />
 
+[享元模式(Flyweight Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/structural_patterns/flyweight.html)：运用共享技术有效地支持大量细粒度对象的复用。系统只使用少量的对象，而这些对象都很相似，状态变化很小，可以实现对象的多次复用。由于享元模式要求能够共享的对象必须是细粒度对象，因此它又称为轻量级模式，它是一种对象结构型模式。
+
 #### *行为性模式*
 用于控制对象的行为。如果对象的行为设计得好，那么对象的行为就会更清晰，它们之间的协作效率就会更高。
 #### 13. 命令模式（Command）
@@ -189,6 +230,8 @@ tags: Java 设计原则 设计模式
 
 <img src='images/command.png' />
 
+[命令模式(Command Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/command.html)：命令模式是一种对象行为型模式，其别名为动作(Action)模式或事务(Transaction)模式。
+
 #### 14. 观察者模式（Observer）
 
 观察者模式的意图是定义对象间一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知自动更新。
@@ -196,6 +239,8 @@ tags: Java 设计原则 设计模式
 通用类图如下：
 
 <img src='images/observer.png' />
+
+[观察者模式(Observer Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/observer.html)：观察者模式又叫做发布-订阅（Publish/Subscribe）模式、模型-视图（Model/View）模式、源-监听器（Source/Listener）模式或从属者（Dependents）模式。
 
 #### 15. 责任链模式（Chain of Responsibility）
 
@@ -230,6 +275,8 @@ tags: Java 设计原则 设计模式
 
 <img src='images/state.png' />
 
+[状态模式(State Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/state.html) 
+
 #### 19. 备忘录模式（Memento）
 
 备忘录模式可以在不破坏对象的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后在需要时就可以将该对象恢复到原先保存的状态。 
@@ -246,6 +293,8 @@ tags: Java 设计原则 设计模式
 
 <img src='images/strategy.png' />
 
+[策略模式(Strategy Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/strategy.html)：也称为政策模式(Policy)。
+
 #### 21. 调停者模式（Mediator）
 
 调停者模式（中介者模式）定义了一组对象之间的相互影响的行为的对象，这样可以使用松耦合的方式联系一组对象，避免对象之间互相显式地直接引用，从而当改变了某些对象之间
@@ -254,6 +303,8 @@ tags: Java 设计原则 设计模式
 通用类图如下：
 
 <img src='images/mediator.png' />
+
+[中介者模式(Mediator Pattern)定义](https://design-patterns.readthedocs.io/zh_CN/latest/behavioral_patterns/mediator.html)：中介者模式又称为调停者模式，它是一种对象行为型模式。
 
 #### 22. 模板方法模式（Template Method）
 
