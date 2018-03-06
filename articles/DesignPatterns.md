@@ -111,7 +111,7 @@ tags: Java 设计原则 设计模式
 
 <img src='images/builder.png' />
 
-[造者模式(Builder Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/builder.html)，它是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。建造者模式属于对象创建型模式。根据中文翻译的不同，建造者模式又可以称为生成器模式。
+[建造者模式(Builder Pattern)](https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/builder.html)，它是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。建造者模式属于对象创建型模式。根据中文翻译的不同，建造者模式又可以称为生成器模式。
 
 #### 4. 原型模式（Prototype）
 
