@@ -11,18 +11,342 @@ tags: Java 设计原则 设计模式
 - 一种可变性不应当分散于很多代码片段中，而应当被封装到一个对象里面。同一种可变性的不同表象意味着同一个继承等级结构中的具体子类。
 - 一种可变性不应当与另一种可变性混合在一起。类的设计应该具备特定的可变性而不是众多的可变性。
 
+假设要用代码描述一个汽车类Car，其中要定义汽车的名称和发动机的类型，代码如下：
+
+**代码片段1 Car.java**
+```java
+/**
+* 违反开闭原则的汽车类
+*/
+public class Car{
+  /**
+  * 汽车名称
+  */
+  private String name;
+  
+  /**
+  * 汽车引擎
+  */
+  private String engine;
+  
+  public String getName(){
+    return name;
+  }
+  
+  public void setName(String name){
+    this.name = name;
+  }
+  
+  public String getEngine(){
+    return engine;
+  }
+  
+  public void setEngine(String engine){
+    this.engine = engine;
+  }
+  
+  public void print(){
+    System.out.println("引擎是" + engine + "的" + name);
+  }
+  
+  public static void main(String[] args){
+    Car car = new Car();
+    car.setEngine("V4发动机");
+    car.setName("皮卡");
+    car.print();
+    //运行结束
+    //引擎是V4的皮卡
+  }
+}
+```
+可见，虽然这个类的使用是没有问题的，但是要更换其中的发动机类型将变得很复杂（上面的例子中使用的是字符串，效果不明显，假设发动机是一个单独的类这个问题就明显了），所以发动机类型这种变化应该被独立设定出来。
+
+修改后的代码如下：
+
+**代码片段2 CarModi.java**
+```java
+/**
+* 符合开闭原则的汽车类
+*/
+public class CarModi{
+  /**
+    * 汽车名称
+    */
+    private String name;
+    
+    /**
+    * 汽车引擎
+    */
+    private IEng engine;
+    
+    public String getName(){
+      return name;
+    }
+    
+    public void setName(String name){
+      this.name = name;
+    }
+    
+    public IEng getEngine(){
+      return engine;
+    }
+    
+    public void setEngine(IEng engine){
+      this.engine = engine;
+    }
+    
+    public void print(){
+      System.out.println("引擎是" + engine.getEngine() + "的" + name);
+    }
+    
+    public static void main(String[] args){
+      Car car = new Car();
+      car.setEngine(new V4Eng());
+      car.setName("皮卡");
+      car.print();
+      car.setEngine(new V8Eng());
+      car.print();
+      //运行结束
+      //引擎是V4的皮卡
+      //引擎是V8的皮卡
+    }
+    
+    /**
+    * 引擎接口
+    */
+    interface IEng{
+      String getEngine();
+    }
+    
+    /**
+    * V4引擎
+    */
+    class V4Eng implements IEng{
+      private String eng = "V4";
+      
+      public String getEngine(){
+        return eng;
+      }
+    }
+    
+    /**
+    * V8引擎
+    */
+    class V4Eng implements IEng{
+      private String eng = "V8";
+          
+      public String getEngine(){
+        return eng; 
+      }
+    }
+}
+```
+由代码可见，现在已经可以自由地更换引擎而不用修改汽车对象本身了。
+
 #### 2. 单一职责原则（Single Responsibility Principle, SRP）
 
 定义：一个类只负责一个功能领域中的相应职责，或者可以定义为：就一个类而言，应该只有一个引起它变化的原因。
 
 在构造对象时，应将对象的不同职责分离至多个类中，从而确保引起该类变化的原因只有一个。使用此原则可以提高内聚，降低耦合度。
 
+比如有一个文档类，这个类目前的职责是负责维护文档内容和打印，代码如下：
+
+**代码片段3 Document.java**
+```java
+/**
+* 违反SRP的文档类
+*/
+public class Document{
+  /**
+  * 文档内容
+  */
+  private String content;
+  
+  public String getContent(){
+    return content;
+  }
+  
+  public void setContent(String content){
+    this.content = content;
+  }
+  
+  /**
+  * 打印方法
+  */
+  public void printMethod(){
+    System.out.println("将文档内容打印至控制台");
+  }
+}
+```
+由代码可见，Document类有两种使其改变的因素，一个是文档内容的改变，这个是此类的本分职责；另一个是如果现在需要将文档传送至文件或者网络进行打印，那么势必要修改
+Document中的print方法。这样一来，Document类就有了两种使其改变的因素，违反了SRP原则。修改方法就是将print方法放在另一个职责中：
+
+**代码片段4 DocumentModi.java**
+```java
+/**
+* 符合单一职责原则的文档类
+*/
+public class DocumentModi{
+  /**
+   * 文档内容
+   */
+  private String content;
+    
+  public String getContent(){
+    return content; 
+  }
+    
+  public void setContent(String content){
+    this.content = content; 
+  }
+  
+  /**
+  * 打印对象
+  */
+  private IPrint print;
+  
+  public IPrint getPrint(){
+    return print;
+  }
+  
+  public void setPrint(IPrint print){
+    this.print = print;
+  }
+  
+  /**
+  * 打印方法
+  */
+  public void printMethod(){
+    print.print();
+  }
+} 
+
+/**
+* 打印接口
+*/
+interface IPrint{
+  void print();
+}
+
+/**
+* 控制台打印
+*/
+class ConsolePrint implements IPrint{
+  @Override
+  public void print(){
+    System.out.println("将内容打印至控制台");
+  }
+}
+
+/**
+* 文件打印
+*/
+class ConsolePrint implements IPrint{
+  @Override
+  public void print(){
+    System.out.println("将内容输出至文件");
+  }
+}
+```
+有代码可见，经过修改后的代码中Document和IPrint类的职责都很单一，这样耦合度就会降低，从而带来可维护性的好处。
+
 #### 3. 里氏替换原则（Liskov Substitution Principle, LSP）
 
-定义：所有引用基类（父类）的地方必须能透明地使用其子类的对象。
+定义：若对每个类S的对象O1，都存在一个类T的对象O2，使得在所有针对T编写的程序P中，用O1替换O2后，程序P行为功能不变，则S是T的子类。
 
 该原则的具体应用体现在继承关系上，在实现继承时，子类必须能替换掉它们的基类。如果一个软件代码中使用的是基类的话那么也一定可以使用其子类，但反过来的
 代换则可以不成立。
+
+下面的例子解决了一个问题：为什么正方形不可以设计为矩形的子类：
+
+**代码片段5 Rectangle.java**
+```java
+/**
+* 违反里氏替换原则的继承
+*/
+public class Rectangle{
+  /**
+  * 长方形可以单独设计宽和高
+  */
+  private int width;
+  private int height;
+  
+  public int getWidth(){
+    return width;
+  }
+  
+  public void setWidth(int width){
+    this.width = width;
+  }
+  
+  public int getHeight(){
+    return height;
+  }
+  
+  public void setHeight(int height){
+    this.height = height;
+  }
+}
+
+class Square extends Rectangle{
+  /**
+  * 正方形的宽和高等长所以将对高的操作全部转移至宽中
+  */
+  public int getHeight() {
+    return getWidth();
+  }
+  
+  public void setHeight(int height){
+    this.setWidth(height);
+  }
+}
+```
+代码中将正方形设计为矩形的子类，但是实际上正方形的特点和矩形不一样，因为它的宽和高不能独立变化，就会所以就会在编码过程中出现问题。修改后如下：
+
+**代码片段6 RectangleModi.java**
+```java
+/**
+* 符合里氏替换原则的继承
+*/
+public class RectangleModi{
+   /**
+    * 长方形可以单独设计宽和高
+    */
+    private int width;
+    private int height;
+    
+    public int getWidth(){
+      return width;
+    }
+    
+    public void setWidth(int width){
+      this.width = width;
+    }
+    
+    public int getHeight(){
+      return height;
+    }
+    
+    public void setHeight(int height){
+      this.height = height;
+    }
+}
+
+class SquareModi {
+  /**
+  * 正方形的宽和高等长
+  */
+  private int length;
+  
+  public int getLength(){
+    return length;
+  }
+  
+  public void setLength(int length){
+    this.length = length;
+  }
+}
+```
 
 #### 4. 依赖倒转原则（Dependency Inversion  Principle, DIP）
 
