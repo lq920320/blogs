@@ -358,6 +358,34 @@ class SquareModi {
 
 在引入抽象层后，系统将具有很好的灵活性，在程序中尽量使用抽象层进行编程，而将具体类写在配置文件中，这样一来，如果系统行为发生变化，只需要对抽象层进
 行扩展，并修改配置文件，而无须修改原有系统的源代码，在不修改的情况下来扩展系统的功能，满足开闭原则的要求。
+
+**代码片段7 DipTest.java**
+```java
+/**
+* 依赖倒置员额实例
+*/
+public class DipTest {
+  public static void main(String[] args) {
+    /**
+    * 不符合依赖倒置原则的实例 
+    */
+    ArrayList<String> lista = new ArrayList<String>();
+    lista.add("元素1");
+    lista.add("元素2");
+    lista.add("元素3");
+    
+    /**
+    * 符合依赖倒置原则的实例
+    */
+    List<String> listb = new ArrayList<String>();
+    listb.add("元素1");
+    listb.add("元素2");
+    listb.add("元素3");
+  }
+}
+```
+代码中不合符原则的代码带来的问题是如果以后将要使用另外一种List实现类，则lista这个变量就无法工作了，而listb还可以正常使用，所以编码时要依赖于稳定的
+抽象概念而不是易变的具体类。
       
 #### 5. 接口隔离原则（Interface  Segregation Principle, ISP）
 
@@ -365,6 +393,57 @@ class SquareModi {
 
 在使用接口隔离原则时，我们需要注意控制接口的粒度，接口不能太小，如果太小会导致系统中接口泛滥，不利于维护；接口也不能太大，太大的接口将违背接口隔离
 原则，灵活性较差，使用起来很不方便。一般而言，接口中仅包含为某一类用户定制的方法即可，不应该强迫客户依赖于那些它们不用的方法。
+
+下面的例子说明了隔离的方法，假设有一个工厂，有两种角色分别是工人和消费者，工厂中可以发生生产也可以发生消费活动，而工人智能生产，消费者只能消费，所以应将
+两者用接口隔离。
+
+**代码片段8**
+```java
+/**
+* 符合接口隔离原则的工厂
+*/
+public class Factory implements IProduces, IConsumers{
+  @Override
+  public void produce() {
+    System.out.println("工人生产");
+  }
+  
+  @Override
+  public void consume() {
+    System.out.println("消费者消费");
+  }
+  
+  public static void main(String[] args){
+    /**
+    * 创建消费者
+    */
+    IConsumer consumer = new Factory();
+    consumer.consume();
+    //consumer.produce();   //无法执行
+    /**
+    * 创建生产者
+    */
+    IProduce worker = new Factory();
+    worker.produce();
+    //worker.consume();     //无法执行
+  }
+}
+
+/**
+* 生产接口
+*/
+interface IProduce{
+  void produce();
+}
+
+/**
+* 消费接口
+*/
+interface IConsume{
+  void consume();
+}
+```
+由代码可见，通过双接口的设计，工人和消费者可以使自己应该使用的方法而无法使用接口中未定义的方法，这样就提高了安全性和方便性。
 
 #### 6. 迪米特法则（Law of Demeter, LoD）
 
