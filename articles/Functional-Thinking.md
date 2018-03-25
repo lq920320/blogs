@@ -428,9 +428,168 @@ print length([2+1, 3*2, 1/0, 5-4])
 我们的探索可以从*素数*（只能被1和它本身整除的自然数）类开始。
 
 ```java
-//寻找素数，Java实现
-
+//例4-11 寻找素数，Java实现
+public class Prime{
+  public static boolean isFactor(final int potential, final int number) {
+    return number % potential == 0;
+  }
+  
+  public static Set<Integer> getFactors(final int number) {
+    Set<Integer> factors = new HashSet<>();
+    factors.add(1);
+    factors.add(number);
+    for (int i = 2; i < sqrt(number) + 1; i ++){
+      if (isFactor(i, number)){
+        factors.add(i);
+        factors.add(number / i);
+      }
+    }
+    return factors;
+  }
+  
+  public static int sumFactors(final int number) {
+    int sum = 0;
+    for (int i : getFactors(number)){
+      sum += i;
+    }
+    return sum;
+  }
+  
+  public static boolean isPrime(final int number){
+    return sumFactors(number) == number + 1;
+  }
+  
+  public static Integer nextPrimeFrom(final int lastPrime) {
+    int candidate = lastPrime + 1;
+    while (!isPrime(candidate)) candidate ++;
+    return candidate;
+  }
+}
 ```
+Java本身不提供缓求值的集合，但这并不妨碍我们实现一个特殊的Iterator来模拟缓求值集合。
+
+```java
+//例4-12 素数迭代子，Java实现
+public class PrimeIterator implements Iterator<Integer> {
+  private int lastPrime = 1;
+  
+  @Override
+  public boolean hasNext(){
+    return true;
+  }
+  
+  @Override
+  public Integer next(){ 
+    return lastPrime = Prime.nextPrimeFrom(lastPrime);
+  }
+  
+  @Override
+  public void remove() {
+    throw new RuntimeException("颠覆宇宙真理的异常");
+  }
+}
+```
+一般来说，开发者会把迭代子想象成在背后有一个存储数据的集合，实际上任何对象只要支持了Iterator接口，就可以算是一个迭代子。
+hasNext()总是返回true，因为素数有无穷多个。
+remove()方法在这里没有意义，因此我们让它在意为调用的时候抛出异常。
+承担只要工作的next()方法在它仅有一行的方法体里做了两件事情。首先调用nextPrimeFrom()方法，根据上一个素数来找到下一个素数。其次，它利用Java用一条语句来同时完成赋值和返回操作的能力，更新了内部的lastPrime字段。
+
+#### 4.2.2 使用Totally Lazy框架的完美数分类实现
+
+```java
+//例4-13  使用Totally Lazy Java框架实现的完美数分类
+import com.googlecode.totallylazy.Predicate;
+import com.googlecode.totallylazy.Sequence;
+
+import com.googlecode.totallylazy.Predicate.is;
+import com.googlecode.totallylazy.numbers.Numbers.*;
+import com.googlecode.totallylazy.predicates.WherePredicate.where;
+
+public class NumberClassifier {
+  public static Predicate<Number> isFactor(Number n) {
+    return where(remainder(n), is(zero));                    //①
+  }
+  
+  public static Sequence<Number> getFactors(final Number n) {
+    return range(1, n).filter(isFactor(n));
+  }
+  
+  public static Sequence<Number> factors(final Number n) {
+    return getFactors(n).memorise();
+  }
+  
+  public static Number aliquotSum(Number n) {
+    return subtract(factors(n).reduce(sum), n);
+  }
+  
+  public static boolean isPerfect(Number n) {
+    return equalTo(n, aliquotSum(n));
+  }
+  
+  public static boolean isAbundant(Number n) {
+    return greaterThan(aliquotSum(n), n);
+  }
+  
+  public static boolean isDeficient(Number n) {
+    return lessThen(aliquotSum(n), n);
+  }
+}
+```
+- ①remainder等函数和where等谓词都是框架提供的。
+
+开头的连串静态导入让我们得以省略频繁出现的类前缀，减少了行文中的干扰。经过这样的处理，代码已经不像典型的Java语句，但可读性很高。
+Totally Lazy框架对Java的不宜不可能越出Java语法发界限，因此它没有运用运算符重载，而通过增加适当的方法来改善表现力。于是`num % i == 0`就写成了`where(remainder(n), is(zero))`的形式。
+
+Totally Lazy的简便语法有一部分是受到JUnit测试框架（http://junit.org）的扩展库Hamcrest(https://code.google.com/p/hamcrest)的启发，甚至直接使用了Hamcrest的一些类。
+在Totally Lazy的remainder()方法和Hamcrest的is()方法携手之下我们用一次where()调用来完成了isFactor()方法的工作。
+factors()方法也变成对range()对象进行的一次filter()调用。约数的求和工作则由我们现在已经很熟悉的reduce()方法来完成。
+由于Java不支持运算符重载，求解aliquotSum所需要的减法运算也只好变成了对subtract()方法的调用。最后，isPerfect()方法使用Hamcrest提供的equalTo()方法来判断目标数本身是否等于它的真约数和。
+
+Totally Lazy利用Java语言中不甚起眼的静态导入特性，出色地营造了富于可读性的代码。很多开发者武断地相信Java是一种糟糕的内部DSL(领域专用语言)宿主，Totally Lazy戳破了这种论调。缓求值也是Totally Lazy积极运用的原则之一，一切操作都被尽可能地推迟。
+我们如果希望建立更传统一些的缓求值数据结构，高阶函数会是很重要的一件工具。
+
+#### 4.2.5 缓求值的好处
+
+缓求值列表有几个好处。第一，我们可以用它创建无限长度的序列。由于不需要求解还没用到的元素值，我们可以用缓求值集合来建模无限列表。
+
+第二，减少占用的存储空间。假如能够用推导的方法得到后续的值，那就不必预先存储完整的列表了——这是牺牲速度来换取存储空间的做法。是否采用缓求值集合，取决于我们如何权衡元素值的存储和计算的花费。
+
+第三，缓求值集合有利于运行时产生更高效率的代码。
+
+
+## 第5章  演化的语言
+
+函数式编程语言和面向对象语言对待待代码重用的方式不一样，面向对象语言喜欢大量地建立有很多操作的各种数据结构，函数式语言也有很多操作，但对应的数据结构却很少。
+面向对象语言鼓励我们建立专门针对某个类的方法，我们从类的关系中发现重复出现的模式并加以重用。
+函数式语言的重用表现在函数的通用性上，它们鼓励在数据结构上使用各种共通的变换，并通过高阶函数来调整操作以满足具体事项的要求。
+
+### 5.1 少量的数据结构搭配大量的操作
+
+*100个函数操作一种数据结构的组合，要好过10个函数操作10种数据结构的组合。 ——Alan Perlis*
+
+在面向对象的命令式编程语言里面，重用的单元是类和用作类间通信的消息，通常可以表述成一幅类图。
+
+比起在定制的类结构上做文章，把封装的单元缩小到函数级别，有利于在更基础的层面上更细粒度地实施重用。
+
+### 5.2 让语言其迎合问题
+
+很多开发者都有一种误解，认为自己的工作就是把复杂的业务问题翻译成某种编程语言，如Java。他们会有这样的想法，原因在Java身上。Java不是一种特别灵活的语言，我们只能死板地用一些现成的结构来拼凑自己的设计。
+而另外一些开发者使用的语言可塑性更强，他们不会拿问题去硬套语言，而是想办法揉捏手中的语言来迎合问题。
+
+重塑语言的能力算不上函数式语言独有的特性，现代语言普遍可以轻巧地揉捏语言来贴合问题域，不过在这种能力的影响下，更容易催生带有浓厚函数式、描述式风格的代码。
+
+*让程序去贴合问题，不要反过来。*
+
+### 5.3 对分发机制的再思考
+
+我们用“分发机制”这个词来泛称各种语言中用作“动态地选择行为”的特性。与Java的做法相比，几种函数式JVM语言的分发机制更加简洁、灵活，比如Groovy，Clojure等。
+
+### 5.4 运算符重载
+
+运算符重载是函数式语言常见的特性，它允许我们重新定义运算符（诸如+、-、*），使之适用于新的类型，并承载新的行为。Java语言没有运算符重载特性，这是它的设计者在语言形成阶段就刻意作出的决定，不过时至今日，几乎所有现代语言都包含了运算符重载特性，连同Java平台上的一众衍生语言在内。
+
+
+
 
 
 
