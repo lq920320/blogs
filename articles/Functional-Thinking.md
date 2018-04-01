@@ -662,7 +662,171 @@ ___________________________
 
 接下来，我们准备在Either抽象的基础上构造一棵树形结构，这样做的好处要从*模式匹配*说起。
 
+##### 1.Scala的模式匹配
 
+作为分发机制的模式匹配是Scala语言吸引人的特性之一。
+
+```scala
+//例5-32  使用Scala模式匹配来实现成绩分等
+val VALID_GRADES = Set("A", "B", "C", "D", "F")
+
+def letterGrade(value : Any) : String = value match {
+  case x: Int if (90 to 100).contains(x) => "A"
+  case x: Int if (80 to 90).contains(x) => "B"
+  case x: Int if (70 to 80).contains(x) => "C"
+  case x: Int if (60 to 70).contains(x) => "D"
+  case x: Int if (0 to 60).contains(x) => "F"
+  case x: String if VALID_GRADES(x.toUpperCase)) => x.toUpperCase
+}
+
+//例5-33  测试成绩分等函数
+printf("Amy的成绩为%d，获得%s等\n", 91, letterGrade(91))
+printf("Bob的成绩为%d，获得%s等\n", 72, letterGrade(72))
+printf("Sam的成绩为%d，获得%s等\n", 44, letterGrade(44))
+printf("Roy转学前已获%s等，记为%s等\n", "B", letterGrade("B"))
+```
+
+letterGrade函数的整个函数体都是针对其参数不同取值的match块。我们设定了一系列的模式来防备每一种取值情况，除了参数的类型，这些模式还可以根据各种
+细致的条件来划分和筛选参数的取值。模式匹配的语法将每一种取值情况划分明了，比起笨拙的连串if语句高明多了。
+
+模式匹配可以和Scala的case类联用，这种特殊性质的类可以帮助我们隐去case语句中冗长的条件判断，将之转移到case类的定义里。
+
+```scala
+//例5-34  Scala中针对case类的匹配模式
+class Color(val red:Int, val green:Int, val blue:Int)
+
+case class Red(r:Int) extends Color(r, 0, 0)
+case class Green(g:Int) extends Color(0, g, 0)
+case class Blue(b:Int) extends Color(0, 0, b)
+
+def printColor(c:Color) c match {
+  case Red(v) => println("Red: " + v)
+  case Green(v) => println("Green: " + v)
+  case Blue(v) => println("Blue: " + v)
+  case col:Color => {
+    print("R: " + col.red + ",")
+    print("G: " + col.green + ",")
+    println("B: " + col.blue)
+  }
+  
+  case null => println("invalid color")
+}
+```
+
+首先创建了基类Color，然后以case类的形式建立特化的版本来表示单色。为了在函数中判断传入的参数是哪一种颜色，我们使用了match来对所有可能的取值选项作模式匹配，最后还匹配处理了空值的情况。
+
+**Scala的case类**
+
+面向对象系统，尤其是一些差异较大，而需要互相通信的系统之间，经常使用一些简单的类来作为数据的承载容器。case类自动地附带了以下语法便利。
+
+- 类名可以直接用作一个工厂方法。我们不必动用new关键字就可以构造一个新实例，如val bob = Person("Bob", 42)。
+- 经类参数列表传入的所有值都会自动被赋予val类型，也就是说它们都成了类中值不可变的内部字段。
+- 编译器自动为case类生成合理的equals()、hashCode()和toString()默认实现。
+- 编译器添加到类中的copy()方法可以通过返回新副本的形式，实现对原实例的字段修改。
+
+
+Java不支持模式匹配，因此我们没有办法写出像Scala那样清晰可读的分发代码。但如果让泛型和我们熟悉的数据结构联起手来，未必不能学到一点神韵。
+
+##### 2.Either树
+
+表5-2：构造一棵树需要的三种抽象
+
+ | 树的抽象 | 说明 |
+ | -------- | -------- |
+ |empty  |  没有值的单元  |  
+ |leaf   |  放置了某种数据类型的值的单元 | 
+ |node   |  指向其他的leaf或node   |
+ 
+ 我们直接使用Functional Java框架中的Either类。理论上，Either 抽象内可以放置数据的栏位可以扩展为任意的数量。Either<Empty, Either<Leaf, Node>>
+ 
+ ```java
+//例5-35  在Either上建立起来的树结构
+import fj.data.Either;
+import static fj.data.Either.left;
+import static fj.data.Either.right;
+
+public abstract class Tree {
+  private Tree() {}
+  
+  public abstract Either<Empty, Either<Leaf, Node>> toEither();
+  
+  public static final class Empty extends Tree {
+    public Either<Empty, Either<Leaf, Node>> toEither(){
+      return left(this);
+    }
+    public Empty(){}
+  }
+  
+  public static final class Leaf extends Tree {
+    publi final int n;
+    
+    @Override
+    public Either<Empty, Either<Leaf, Node>> toEither() {
+      return right(Either.<Leaf, Node>left(this));
+    }
+    
+    public Leaf() {}
+  }
+  
+  public final class Node extends Tree {
+    public final Tree left;
+    public final Tree right;
+    
+    public Either<Empty, Either<Left, Node>> toEither() {
+      return right(Either.<Left, Node>right(this));
+    }
+    
+    public Node(Tree left, Tree right){
+      this.left = left;
+      this.right = right;
+    }
+  }
+}
+```
+
+Tree的内部类在其内部定义了三个final具体类：Empty、Leaf、Node。Tree类规定了Empty要放在最左边的位置，Leaf放在中间，Node放最右边。
+每个内部类都实现了toEither()方法，保证本类的实例放在了三值Either中正确的栏位上。我们用来搭建树结构的构造单元，三值Either，相当于传统计算机科学术语中“联合体”（union）的概念，虽然允许放入三种类型，但在任意时刻只会持有其中的一种。
+
+##### 3.以模式匹配的方式实现树的遍历
+
+Scala的模式匹配鼓励我们把不同的情况分开考虑。Functional Java 框架中Either的left()和right()都实现了Iterable接口，我们模拟模式匹配的基本条件已经满足。
+
+```java
+//例5-36 模仿模式匹配的语法来获取树的深度
+static public int depth(Tree t){
+  for(Empty e : t.toEither().left())
+    return 0;
+  for(Either<Leaf, Node> ln : t.toEither().right()){
+    for(Leaf leaf : ln.left())
+      return 1;
+    for(Node node : ln.right())
+      return 1 + max(depth(node.left), depth(node.right));
+  }
+  throw new RuntimeException("Inexhaustible pattern match on tree");
+}
+```
+
+depth()方法是一个递归的深度查找函数。由于我们的树采用了特殊的单元结构（<Empty, <Left, Node>>），我们可以将每一个“栏位”都当成一个“case”来对待。
+如果单元是empty，那么这根枝条的深度为零。如果单元是leaf，那么我们给树的深度累计一层。如果单元是node，那么我们应该累计一层，并继续帝国搜索单元的左子树和右子树。
+
+```java
+//例5-37  判定给定值在树中是否存在
+static public boolean inTree(Tree t, int value) {
+  for(Empty e : t.toEither().left())
+    return false;
+  for(Either<Leaf, Node> ln : t.toEither().right()){
+    for(Leaf leaf : ln.left()){
+      return value == leaf.n;
+    }
+    for(Node node : ln.right())
+      return inTree(node.left, value) | inTree(node.right, value);
+  }
+  return false;
+}
+```
+
+两个例子都是按照单元结构的“栏位”来返回相应结果。
+如果遇到empty单元，我们就返回false，表示搜索失败了。如果遇到leaf， 我们检查单元中放置的值，如果匹配就返回true。当遇到node单元的时候，我们继续递归搜索下游分支，用|（非短路或运算符）合并左右子树的搜索结果。
 
 
 
