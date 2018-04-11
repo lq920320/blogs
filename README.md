@@ -16,5 +16,6 @@ Here will record my blogs about the study of new tech or how to solve problems I
 1. [Translation of *Migrating to Python 3 with pleasure*](https://github.com/lq920320/python3_with_pleasure/blob/master/README_CN.md)
 1. [函数编程案例分析——完美数分类](https://github.com/lq920320/blogs/blob/master/articles/perfectNumber.md)
 1. [StringEscapeUtils的介绍以及简单使用](https://github.com/lq920320/blogs/issues/9)
+1. [Spark Java的介绍及简单例子](https://github.com/lq920320/spark-java-framework-demo)
   
   
