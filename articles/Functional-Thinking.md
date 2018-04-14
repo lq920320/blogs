@@ -866,12 +866,167 @@ static public boolean inTree(Tree t, int value) {
 函数被提升为第一等的语言成分，对Template Method模式的实现有简化的效果，因为可以消除一些为了迂回语言限制而存在的结构。
 Template Method模式在一个方法里面定义好算法的骨架，但留下一部分未实现的步骤，强迫子类按照规定好的算法结构来补全缺失的步骤定义。
 
+```groovy
+//例6-1 Template Method模式的“标准实现”
+abstract class Customer {
+  def plan
+  
+  def Customer(){
+     plan = []
+  }
+  def abstract checkCredit()
+  def abstract checkInventory()
+  def abstract ship()
+  
+  def process(){
+     checkCredit()
+     checkInventory()
+     ship()
+  }
+}
+
+```
+例6-1中process()方法依赖于checkCredit()、checkInventory()和ship()三个方法，这三个方法被设定为抽象方法，子类必须为它们提供具体的实现。
+
+//例6-2 第一等函数对Template Method模式的影响
+
+```groovy
+class CustomerBlocks{
+  def plan, checkCredit, checkInventory, ship
+  
+  def CustomerBlocks() {
+     plan = []
+  }
+  
+  def process() {
+     checkCredit()
+     checkInventory()
+     ship()
+  }
+}
+```
+原先需要特地按照规定格式来声明的算法步骤，在6-2中成了类里面最普通不过的属性，可以像普通美好的属性一样赋值。这正是一个实现细节被语言特性吸收掉的例子。
+
+前后两个实现并不等价。按照6-1的Template Method模式“传统”实现，子类必须补全算法依赖的几个抽象方法的实现。虽然子类可以用空的方法体应付了事，但绝不可能全然无视这些空缺的方法。
+抽象方法的定义相当于一种特殊形式的文档，提醒子类将指定的方法纳入考虑。然而反过来，事先规定好全部的方法声明又有僵化之虞，未必适合需要更多灵活性的情况。
+例如我们也许希望任意指定Customer类处理时使用的方法序列。
+
+语言对代码块等特性支持得越深入，对开发者的亲和力就越好。
+
 
 #### 6.2.2  Strategy模式
 
 Strategy模式也是因为第一等函数而得到简化的一种常见模式。Strategy模式定义一个算法族，并将每一种算法都在相同的接口下封装起来，令同一族的算法能够互换使用。
 这样做的好处是算法的变化不影响使用方，也不受使用方的影响。第一等函数让建立和操纵各种策略的工作变得十分简单。
 
+例6-4给出了Strategy模式的一个传统实现。
+
+```groovy
+//例6-4 用Strategy模式来处理两个数字的积的问题
+interface Calc {
+   def product(n, m)
+}
+
+class CalcMult implements Calc {
+   def product(n, m) {n * m}
+}
+
+class CalcAdds implements Calc {
+   def product(n, m) {
+     def result = 0
+     n.times {
+       result += m
+     }
+     result
+   }
+}
+```
+例6-4为计算两个数字的积定义了统一的接口。我们在接口下实现了两个具体类（也就是两种策略），一个直接用乘法计算，另一个用累加的方法。
+
+例6-4公式化的累赘成分太多了，加入我们正确发挥Groovy作为第一等函数的能力，应该可以做得更好。
+
+```groovy
+// 例6-6 简洁地表达和测试幂的不同计算策略
+@Test
+public void exp_verifier() {
+  def listOfExp = [
+     {i, j -> Math.pow(i, j)},
+     {i, j -> 
+       def result = i
+       (j-1).times {result *= i}
+       result
+     }]
+     
+  listOfExp.each {e -> 
+    assertEquals(32, e(2, 5))
+    assertEquals(100, e(10, 2))
+    assertEquals(1000, e(10, 3))
+  }
+}
+```
+例6-6的两种幂计算策略都是以Groovy代码块的形式就地定义的，我们为表述上的便利而牺牲了规范的形式。传统手法规定了每种策略的名称和结构，在某些情况下更可取。
+但例6-6的好处是我们可以随时给代码增加更严格的防护，而想要突破传统方式设下的框框就没那么容易了。
+
+#### 6.2.3 Flyweight模式和记忆
+
+Flyweight模式是一种在大量的细粒度对象引用之间共享数据的优化技巧。我们维护一个对象池，然后引用池中的对象来构成需要的视图。
+
+Flyweight模式使用了“标准品”对象的概念——可以代表所有其他同型对象的一个典型的对象实例。
+
+同理，我们在程序中没必要为每个用户都创建各自的产品对象列表，相反可以只创建一份标准品的列表，让用户引用列表中的对象来表示自己持有的产品。
+
+把不同实例共用的信息保存起来是个好主意，我么希望把它也带到函数式编程中去。我们在第4章讨论过函数“记忆”，被记忆的函数允许运行时缓存其结果。
+比如在函数内定义了标准品，我们只需要在这个函数上调用memoize()方法，就可以的带相应的带记忆能力的函数实例。
+
+#### 6.2.4 Factory模式和柯里化
+
+在设计模式的语境下，柯里化相当于产出函数的工厂。第一等函数（或高阶函数）是函数式编程语言共同的特性，我们可以用函数来充当其他任何的语言成分。
+因此我们可以很容易地设立一个根据条件来返回其他函数的函数，也就是函数工厂。我们可以可以看一个例子，假设有一个用于两数相加的普通函数，经过柯里化加工，我们可以制造出一个总是其参数加一的递增函数。
+```groovy
+//例6-13 作为函数工厂的柯里化
+def adder = {x, y -> x + y}
+def incrementer = adder.curry(1)
+
+println "7 的递增： ${incrementer(7)}"
+
+```
+在adder上通过柯里化把第一个参数固定为1，这就是我们的函数工厂，它会为我们产出一个单参数的函数。
+
+```
+//例6-14 递归式的筛选函数，Scala实现
+object CurryTest extends App {
+  def filter(xs: List[Int], p: Int => Boolean): List[Int] = 
+    if (xs.isEmpty) xs
+    else if (p(xs.head)) xs.head :: filter(xs.tail, p)
+    else filter(xs.tail, p)
+    
+  def dividesBy(n: Int)(x: Int) = ((x % n) == 0)   //①
+  
+  val nums = List(1, 2, 3, 4, 5, 6, 7, 8)
+  println(filter(nums, dividesBy(2)))           //②
+  println(filter(nums, dividesBy(3)))
+}
+```
+- ①定义时已经指明函数将被柯里化使用
+- ②filter要求传入一个集合（nums）和一个单参数的函数（柯里化之后dividesBy()函数就变成单参数了）。
+
+在拘谨的模式眼光看来，例6-14“不经意”地柯里化了dividesBy()方法，有些不可思议。dividesBy()本来接受两个参数，并根据第二个参数能否被第一个参数整除来返回true或false。
+然而在它参与到filter()操作的时候，我们只为它提供了一个参数，以柯里化的方式来制造一个单参数的函数去充当filter()方法的谓词。
+
+模式在函数式模式编程下有三种归宿，这个例子同时反映了其中的两种。首先，柯里化已经内建在语言或运行时里面，函数式工厂的概念天然存在，不需要我们添加额外的结构。
+其次，柯里化带给我们一种全新的实现途径。恪守Java的程序员怎么都想不到会有例6-14那样的柯里化解法，他们不曾拥有真正的可传递的代码，对于在通用函数上构造专用函数的思路更为陌生。
+甚至很可能，大多数习惯于命令式编程的开发者根本没想过在这种地方使用设计模式，毕竟在通用版本的基础上构造一个特化的dividesBy()方法，看起来只是一个小问题，而设计模式是为了更大型的问题准备的，因为主要依赖结构来解决问题的设计模式有着很重的实现负担。
+柯里化交给我们的答案如此轻巧，都不值得像模式那样专门为解答方案起一个名字，因为柯里化只是在做它的本职工作而已。
+
+*柯里化可以把通用的函数改造成专用的函数。*
+
+### 6.3 结构化重用和函数式重用的对比
+
+> 面向对象编程通过封装不确定因素来使代码能被人理解；函数式编程通过尽量减少不确定因素来使代码能被人理解。     ——Michael Feathers
+
+简化状态的封装和使用，是面向对象的目标之一。自然地，状态就成了面向对象的抽象用来解决问题的常规武器，维系状态所需要的众多类和交互因此被派生出来——这些正是“不确定因素”。
+
+函数式编程不喜欢把结构耦合在一起，它依靠零件之间的复合来组织抽象，以达到减少不确定因素的目的。
 
 
 
