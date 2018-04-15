@@ -1028,12 +1028,301 @@ object CurryTest extends App {
 
 函数式编程不喜欢把结构耦合在一起，它依靠零件之间的复合来组织抽象，以达到减少不确定因素的目的。
 
+### 以结构为载体的代码重用
+
+命令式的、（尤其是）面向对象的编程风格，使用结构和消息作为建筑材料。如果一段面向对象的代码值得重用，那么我们会把它提取到另一个类中，然后通过继承来访问它。
+
+```java
+//例6-15  命令式的完美数分类实现
+public class ClassifierAlpla {
+  private int number;
+  
+  public ClassifierAlpla(int number) {
+     this.number = number;
+  }
+  
+  public boolean isFactor(int potential_factor) {
+     return number % potential_factor == 0;
+  }
+  
+  public Set<Integer> factors() {
+    HashSet<Integer> factors = new HashSet<>();
+    for(int i = 1; i <= sqrt(number); i ++){
+      if(isFactor(i)){
+         factors.add(i);
+         factors.add(number / i);
+      }
+    }
+    return factors;
+  }
+  
+  static public int sum(Set<Integer> factors) {
+    Iterator it = factors.iterator();
+    int sum = 0;
+    while(it.hasNext())
+      sum += (Integer)it.next();
+    return sum;
+  }
+  
+  public boolean isPerfect() {
+    return sum(factors()) - number == number;
+  }
+  
+  public boolean isAbundant() {
+    return sum(factors()) - number > number;
+  }
+  
+  public boolean isDeficient() {
+    return sum(factors()) - number < number;
+  }
+}
+```
+
+```java
+
+//例6-16 命令式的素数判定实现
+public class PrimeAlpha{
+   private int number;
+   
+   public PrimeAlpha(int number) {
+     this.number = number;
+   }
+   
+   public boolean isPrime() {
+     Set<Integer> primeSet = new HashSet<Integer>(){{
+       add(1);
+       add(number);
+     }};
+     return number > 1 && factors().equals(primeSet);
+   }
+   
+   public boolean isFactor(int potential_factor) {
+     return number % potential_factor == 0;
+   }
+   
+   public Set<Integer> factors() {
+     HashSet<Integer> factors = new HashSet<>();
+     for(int i = 1; i <= sqrt(number); i++) {
+       if(isFactor(i)){
+         factors.add(i);
+         factors.add(number / i);
+       }
+     }
+     return factors;
+   }
+}
+```
+
+例6-16有几个值得注意的地方。第一个是isPrime()方法中有点奇特的初始化代码。我们使用的语法结构叫作*实例初始化块（instance initializer）*，是Java的一种构造技巧。
+这个代码块放在类里面，但又不属于任何方法，它是Java在构造器外提供的另一种控制实例创建的手段。
+
+#### 1.用重构来消灭重复
+
+功能重复的问题可以用重构来解决，我们把重复的部分单独提取到新的Factors类。
+
+```java
+//例6-17 经过提取、重构的共通代码
+public class FactorsBeta {
+  protected int number;
+  
+  public FactorsBeta(int number) {
+    this.number = number;
+  }
+  
+  public boolean isFactor(int potential_factor) {
+    return number % potential_factor == 0;
+  }
+  
+  public Set<Integer> getFactors() {
+    HashSet<Integer> factors = new HashSet<>();
+    for(int i = 1; i <= sqrt(number); i++) {
+      if (isFactor(i)) {
+        factors.add(i);
+        factors.add(number / i);
+      }
+    }
+    return factors;
+  }
+}
+```
+
+由于被提取的两个方法都使用了成员变量number，因此number也一起搬到了超类。执行重构的时候，IDE会询问我们怎样处理number的访问（生成读写方法，设定protected前缀等）。
+
+```java
+//例6-18 重构之后简化了完美数分类的程序
+public class ClassifierBeta extends FactorsBeta {
+  
+  public ClassifierBeta(int number) {
+    super(number);
+  }
+  
+  public int sum() {
+    Iterator it = getFactors().iterator();
+    int sum = 0;
+    while(it.hasNext())
+      sum += (Integer) it.next();
+    return sum;
+  }
+  
+  public boolean isPerfect() {
+    return sum() - number == number;
+  }
+  
+  public boolean isAbundant() {
+    return sum() - number > number;
+  }
+  
+  public boolean isDeficient() {
+    return sum() - number < number;
+  }
+}
+```
 
 
+```java
+//例6-19 重构之后简化了的素数判定程序
+public class PrimeBeta extends FactorsBeta {
+  public PrimeBeta(int number) {
+    super(number);
+  }
+  
+  public boolean isPrime() {
+    Set<Integer> primeSet = new HashSet<Integer>(){{
+       add(1);
+       add(number);
+    }};
+    return getFactors().equals(primeSet);
+  }
+}
+```
 
+无论我们重构时怎样安排number字段的访问选项，在决策的时候都不能只考虑当前的类，而要把关系网里所有的类都考虑进来。
+很多时候这种思考是有益的，因为可以帮助我们划定问题的边界。坏处是父类中的修改会影响下游的类。
 
+这是一种通过耦合来实现的代码重用：两个代码单元（ClassifierBeta类和PrimeBeta类）因为共享了父类的number字段和getFactors()方法，而被绑在了一起。
+语言本身的耦合规则促成了这种用法。面向对象规定了耦合式的交互风格（例如规定我们通过继承来获得对成员变量的访问权），对于各种事物如何耦合我们有一套预定的规则——这是好事，因为可以一致地推理各种情况下的行为。
+继承时很有用的特性，只是面向对象语言滥用了继承，有时候别的一些抽象更符合需要。
 
+#### 2.以复合的方式实现的重用
 
+```java
+//例6-20  稍微向函数式靠拢的完美数分类实现
+public class NumberClassifier {
+  public static boolean isFactor(final int candidate, final int number) {    //①
+    return number % candidate == 0;
+  }
+  
+  public static Set<Integer> factors(final int number) {         //②
+    Set<Integer> factors = new HashSet<>();
+    factors.add(1);
+    factors.add(number);
+    for (int i = 2; i < number; i ++){
+      if (isFactor(i, number)){
+        factors.add(i);
+      }
+    }
+    return factors;
+  }
+  
+  public static int aliquotSum(final Collection<Integer> factors) {         //③
+    int sum = 0;
+    int targetNumber = Collections.max(factors);
+    for (int n : factors){
+      sum += n;
+    }
+    return sum - targetNumber;
+  }
+  
+  public static boolean isPerfect(final int number){
+    return aliquotSum(factors(number)) == number;
+  }
+  
+  public static boolean isAbundant(final int number){             //④
+      return aliquotSum(factors(number)) > number; 
+  }
+  
+  public static boolean isDeficient(final int number){
+    return aliquotSum(factors(number)) == number; 
+  }
+}
+```
+
+- ①众多方法都必须加上number参数，因为没有可以存放的内部状态
+- ②所有方法都带public static 修饰，因为它们都是纯函数，并因此可以在完美数分类之外的领域使用
+- ③注意例中对参数类型的选取，尽可能宽泛的参数类型可以增加函数重用的机会
+- ④例子目前在重复执行分类操作的时候效率较低，因为没有缓存。
+
+```java
+//例6-21 函数式版本的素数判定程序
+public class FPrime {
+  public static boolean isPrime(int number) {
+    Set<Integer> factors = Factors.of(number);
+    return number > 1 && 
+         factors.size() == 2 &&
+         factors.contains(1) &&
+         factors.contains(number);
+  }
+}
+```
+
+我们像前面那样，把重复代码提取出来，放进单独的Factors类。再把factors()方法改名为of()，以提高代码的可读性。
+
+```java
+//例6-22  经过函数式重构发Factors类
+public class Factors {
+  static public boolean isFactor(int number, int potential_factor) {
+    return number % potential_factor == 0;
+  }
+  
+  static public Set<Integer> of(int number) {
+    HashSet<Integer> factors = new HashSet<>();
+    for(int i = 1; i <= sqrt(number); i++){
+      if(isFactor(number, i)){
+        factors.add(i);
+        factors.add(number / i);
+      }    
+    }
+    return factors;
+  }
+}
+```
+
+因为函数式版本的实现通过参数传递所有的状态，我们提取出来的重用代码也就不包含任何共享的状态。我们接下来就可以在Factors类的基础上重构完美数分类和素数查找程序了。
+
+```java
+//例6-23  经过重构的完美数分类程序
+public class FClassifier {
+  
+  public static int sumOfFactors(int number) {
+    Iterator<Integer> it = Factors.of(number).iterator();
+    int sum = 0;
+    while(it.hasNext()) {
+      sum += it.next();
+    }
+    return sum;
+  }
+  
+  public static boolean isPerfect(int number) {
+    return sumOfFactors(number) - number == number;
+  }
+  
+  public static boolean isAbundant(int number) {
+    return sumOfFactors(number) - number > number;
+  }
+  
+  public static boolean isDeficient(int number) {
+    return sumOfFactors(number) - number < number;
+  }  
+}
+```
+
+我们并没有借助任何特殊的类或语言来提高最后这一版实现的函数式程度。我们通过复合（composition）而不是耦合（coupling）来达到代码重用的目的。
+
+耦合与复合的差别是微妙的，但也是重要的。在需要重构大量代码的时候，我们就会发现处处都会遇到耦合，因为耦合是面向对象语言非常基本的重用机制。
+盘根错节、难以理解的耦合关系已经妨害了面向对象语言下的代码重用，只在一些非常成熟的书领域，如对象关系映射、图形界面组件库等少数方面，才取得了令人满意的效果。
+而在那些面向对象特征不那么明显的领域（例如各种业务应用），高水平的重用只是美好的愿望。
+
+像函数式程序员一样思考，意味着要用新的视角去看待编程中的一切方面。代码重用是不同编程范式的共同追求，但函数式程序员在这个问题上有着不同于命令式抽象的解决途径。
 
 
 
