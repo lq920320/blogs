@@ -1325,6 +1325,105 @@ public class FClassifier {
 像函数式程序员一样思考，意味着要用新的视角去看待编程中的一切方面。代码重用是不同编程范式的共同追求，但函数式程序员在这个问题上有着不同于命令式抽象的解决途径。
 
 
+## 第7章  现实应用
+
+### 7.1 Java 8
+
+设计Java 8的工程师们很聪明，他们没有生硬地在语言中安插高阶函数，而是巧妙地让旧的接口也享受到函数的巧妙。
+
+Java 8的stream上可以串联组合一连串的函数，直到我们调用一个产生输出的函数（成为*终结函数*），如collect()、forEach()来终结这种串联。
+
+Java 8除了增加函数式的特性，还增加了一些配合使用的语法糖衣。例如`filter(name -> name.length() > 1)`，完整的写法其实应该是`filter((name) -> name.length() > 1)`。
+因为被传递的lambda块只有一个参数，所以允许省略意义不大的括号。stream操作有时还可以吧返回类型“隐藏”起来。
+
+filter()方法要求传入的参数类型Predicate<T>，其实就是一个返回Boolean值的函数。
+
+```java
+//例7-2  手工创建一个谓词实例
+Predicate<String> p = (name) -> name.startWith("Mr");
+List<String> l = List.of("Mr Rogers", "Mr Robinson", "Mr Ed");
+l.stream().filter(p).forEach(i -> System.out.println(i));
+```
+
+例7-2通过赋值来创建谓词的实例，被赋值给谓词变量的是作为筛选条件的lambda块。最后在第三行调用filter()方法的时候，把谓词实例当作参数传了进去。
+
+collect()执行的是我们熟悉的化约操作：将集合中的元素结合成（一般）比较少的结果值，甚至单一值（如求和操作）。
+Java 8有专门的reduce()方法，但这里的collect()更合适，因为它处理值可变的容器（如StringBuilder）的效率更高。
+
+#### 7.1.1 函数式接口
+
+含有单一方法的接口是Java的一种习惯用法，称为SAM(Single Abstract Method, 单抽象方法)接口，Runnable和Callable接口都是有代表性的例子。
+很多时候，SAM接口主要被当成一种将代码传递到异地执行的机制来使用。现在Java 8有了lambda块这种更好的传递代码的媒介。
+而我们用过一种叫作“函数式接口”的巧妙机制，可以让lambda和SAM携起手来。
+函数式接口是对旧有SAM接口的增强，它允许我们用lambda块取代传统的匿名类来就地实例化一个接口。
+例如Runnable接口就被加上了@FunctionalInterface标注，于是，编译器知道并验证Runnable确实是一个接口（而非class或enum），并且符合函数式接口的要求。
+
+取代Runnable匿名内部类的Java 8新语法，下面的代码通过传递lambda块来创建了新的线程：
+
+```java
+new Thread(() -> System.out.println("Inside thread")).start();
+```
+
+
+
+Java 8还允许我们在接口上声明*默认方法*。“默认方法”是在一些接口类型中声明的，以default关键字标记的，非抽象、非静态类的public方法（且带有方法体定义）。
+默认方法会被自动地添加到实现了接口的类中，这就为我们提供了一条在类上“装饰”默认功能的方便途径。善用这种特性的例子，如Comparator接口，其默认方法多达十余个。
+
+```java
+例7-3  Comparator接口中的方法
+List<Integer> n = List.of(1, 4, 45, 12, 5, 6, 9, 101);
+Comparator<Integer> c1 = (x, y) -> x - y;
+Comparator<Integer> c2 = c1.reversed();
+System.out.println("Smallest = " + n.stream().min(c1).get());
+System.out.println("Largest = " + n.stream().min(c2).get());
+```
+
+例7-3给lambda块套上了一层外皮，创建出一个Comparator实例。然后，我们只需要调用默认方法reversed()，就得到了一个颠倒了方向的比较器实例。
+在种在接口上附着默认方法的能力，可以认为是对“mixin”特性的一种模仿，也是对Java语言有益的补充。
+
+有些早期的面向对象的语言规定，类的属性和方法都集中在同一处，有单个的代码块来构成完整的类定义。
+而另外一种语言则允许开发者先定义属性，以后再择机完成方法的定义，然后“混入”类中。
+随着面向对象语言的演化，mixin特性在现代语言中的实现原理和细节也发生了变化。
+
+Ruby、Groovy等类似语言也允许通过mixin的形式，在既有的类层次上增补功能。这些语言中的mixin是介于接口和父类之间的一种结构。
+它和接口一样都是类型，都可执行instanceof检查，也都遵循一样的扩展规则。同一个类上可以混入不限数目的mixin。
+但是有一点和接口不一样，mixin除了规定方法的签名，还可以实现该签名对应的行为。
+Java 8的默认方法向Java语言引入了mixin机制，从此JDK不需要在单纯为了给静态方法找个归属，而生硬地设置Arrays、Collections这样的类了。
+
+#### 7.1.2 Optional类型
+
+Optional防止方法的返回结果出现无法区分表示错误的null和作为有效结果的null的情况。
+Java 8还提供了ifPresent()方法，可以用在终结操作的位置上，设定在仅当存在有效结果时执行的一个代码块。
+例如下面的例子仅在有返回值的时候打印出结果：
+
+```
+n.stream()
+    .min((x,y) -> x - y)
+    .ifPresent(z -> System.out.println("smallest is " + z));
+```
+
+如果我们还想处理其他情况，可以求助于功能类似的orElse()方法。
+
+#### 7.1.3 Java 8的stream
+
+stream在很多方面的行为都与几何相似，但有一些关键点区别。
+
+- stream不存储值，只担当从输入源引出的管道角色，一直连接到终结操作上产生输出。
+- stream从设计上就偏向函数式风格，避免与状态发生关联。如filter()操作在返回筛选结果的stream时，并不会改动底下的集合。
+- stream上的操作尽可能做到缓求值。
+- stream可以没有边界（无限长）。例如我们可以构造一个返回所有数字的stream，然后用limit()、findFirst()等方法来取得其一部分子集。
+- stream很像Iterator的实例一样，也是消耗品，用过之后必须重新生成新的stream才能再次操作。
+
+stream的操作部分为*中间操作*和*终结操作*。中间操作一律返回新的stream，并且总是缓求值的。
+例如在stream上调用filter()操作，并不会真的在stream上进行筛选。而是产生一个新的stream，让它只为终结操作的遍历过程提供满足筛选条件的值。
+终结操作遍历stream，产生结果值和副作用（如果我们让函数产生副作用的话；虽然不鼓励，但是允许）。
+
+### 7.2 函数式的基础设施
+
+#### 7.2.1 架构
+
+
+
 
 
 
