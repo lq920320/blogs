@@ -18,4 +18,4 @@ Here will record my blogs about the study of new tech or how to solve problems I
 1. [StringEscapeUtils的介绍以及简单使用](https://github.com/lq920320/blogs/issues/9)
 1. [Spark Java的介绍及简单例子](https://github.com/lq920320/spark-java-framework-demo)
 1. [译：机器学习简史](https://github.com/lq920320/blogs/issues/10)
- 
+1. [MySql:当两个表的字符集不同时的关联方法](https://github.com/lq920320/blogs/issues/11) 
