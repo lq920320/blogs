@@ -7,7 +7,7 @@
 
 ### String、StringBuffer和StringBuilder的区别
 
-1. String
+#### 1. String
 
 String: 字符串常量，字符串长度不可变。Java中的String是immutable（不可变）的。
 
@@ -105,7 +105,7 @@ String类由final修饰，因此只能赋值一次，且不可再修改。另外
 
 在这里要永远记住一点：**“对String对象的任何改变都不影响到原对象，相关的任何change操作都会生成新的对象”。**
 
-2. StringBuffer（JDK1.0）
+#### 2. StringBuffer（JDK1.0）
 
 StringBuffer: 字符串变量（Synchronized，即线程安全）。如果要频繁对字符串内容进行修改，出于效率考虑最好使用StringBuffer，如果想转成String类型，可以调用StringBuffer的toString()方法。
 
@@ -117,7 +117,7 @@ StringBuffer是一个线程安全的，可变的字符序列。一个string buff
 StringBuffer 上的主要操作是 append 和 insert 方法，可重载这些方法，以接受任意类型的数据。每个方法都能有效地将给定的数据转换成字符串，然后将该字符串的字符追加或插入到字符串缓冲区中。
 append 方法始终将这些字符添加到缓冲区的末端；而 insert 方法则在指定的点添加字符。
 
-3. StringBuilder（JDK5.0）
+#### 3. StringBuilder（JDK5.0）
 
 StringBuilder: 字符串变量（非线程安全）。在内部，StringBuilder对象被当作是一个包含字符序列的变长数组。
 
@@ -132,7 +132,7 @@ StringBuilder类提供与StringBuffer兼容的API，但不保证同步。用于�
 |StringBuilder(int initCapacity)|	创建一个容量为initCapacity的StringBuilder对象|
 |StringBuilder(String s)|	创建一个包含s的StringBuilder对象，末尾附加16个空元素|
 
-4. 三者区别
+#### 4. 三者区别
 
 String 类型和StringBuffer的主要性能区别：String是不可变的对象, 因此在每次对String类型进行改变的时候，都会生成一个新的 String 对象，然后将指针指向新的 String 对象，所以经常改变内容的字符串最好不要用 String ，因为每次生成对象都会对系统性能产生影响，特别当内存中无引用对象多了以后， JVM 的 GC 就会开始工作，性能就会降低。
 
@@ -161,7 +161,7 @@ String s1 = s2 + s3 + s4;
 此时，对于上述情况，若s2，s3，s4采用String定义，拼接时需要额外创建一个StringBuffer（或StringBuilder），之后将StringBuffer转换为String；
 若采用StringBuffer（或StringBuilder），则不需额外创建StringBuffer。
 
-5. 使用策略
+#### 5. 使用策略
 
 （1）基本原则：如果要操作少量的数据，用String ；单线程操作大量数据，用StringBuilder ；多线程操作大量数据，用StringBuffer。
 
