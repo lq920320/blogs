@@ -129,7 +129,7 @@ Idf(bitterballen)        = 2
 正在排名的主页： http://www.fietsentoko.nl/
 
 |term|Query|-|-|-|Document|-|-|Product|              
-|-|-|-|-|-|-|                
+|-|-|-|-|-|-| -| -| -|                    
 |- |tf |df |idf | Wt,q|tf|Wf|Wt,d|           
 |Fiets|1|25.500.000|3.610493159|3.610493159|21|	441|0.70711|2.55302|          
 |Kopen|1|118.000.000|2.945151332|2.9452|21|	441|0.70711|2.08258|            
@@ -137,8 +137,8 @@ Idf(bitterballen)        = 2
 
 我想要去取得排名的页面：http://www.fietsentoko.nl/fietsen/
 
-|term|Query|-|-|-|Document|||Product|              
-|-|-|-|-|             
+|term|Query|-|-|-|Document|-|-|Product|              
+|-|-|-|-|-|-|-|-|-|             
 |- |tf |df |idf | Wt,q|tf|Wf|Wt,d|               
 |Fiets|1|25.500.000|3.610493159|3.610493159|22|	484|0.61782|2.23063|                
 |Kopen|1|118.000.000|2.945151332|2.945151332|28|	784|0.78631|2.31584|              
