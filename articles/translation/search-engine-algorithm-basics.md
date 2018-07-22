@@ -164,7 +164,7 @@ Google的另一种方法是简单使用数据挖掘。他们还可以查看不�
 
 我们使用此数据来调整查询项权重的示例是[Rochio的反馈公式](https://en.wikipedia.org/wiki/Nearest_centroid_classifier)。归结起来为给查询中的词调整其值，并且可能增加额外的查询词。公式如下：
 
-<img src='images/formalu.png' />
+<img src='images/formula.png' />
 
 下面这个表格是该公式的一个直观表示。假设我们带入下面的值：          
 Query terms（查询词）: +1 (alpha)     
