@@ -8,7 +8,7 @@
 
 在本文中，我会详细阐述有关搜索引擎及其可选解决方案的一些问题。（很遗憾）到了文章末尾我们也没有透漏谷歌的算法，但是我们可以更进一步理解一些我们作为一个SEO（Search Engine Optimizers，搜索引擎优化工程师）经常给出的建议。会有一些公式，但是不要惊慌。本文并不仅仅是关于那些公式。文章包含一个excel文件。噢，最好的是：我会用一些荷兰美食来介绍这些问题。
 
-<img src='images/food1.png' />
+<img src='images/food1.jpg' />
 
 看哪：Croquets是细长的而bitterballen是圆形的; -)
 【Croquets： 可乐饼   bitterballen： 奶油肉丸 】
@@ -23,7 +23,7 @@
 **文档2：**             
 "In the Netherlands you retrieve croquets and frikandellen from the wall."
 
-<img src='images/frikandellen.png' />
+<img src='images/frikandellen.jpg' />
 
 噢，差点忘了给你展示一下frikandellen了 ;-)
 
