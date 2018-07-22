@@ -190,6 +190,51 @@ String result = sb.toString();
 
 ### 字符串可以有多长？
 
+一般情况下，我们在Java代码中使用String，小至几KB，几MB，甚至上百MB，这些都是比较常见的，很少有GB这种数量级的。那么，String的容量究竟有多少呢？
+
+```
+public final class String
+    implements java.io.Serializable, Comparable<String>, CharSequence {
+    /** The value is used for character storage. */
+    private final char value[];
+
+    /** Cache the hash code for the string */
+    private int hash; // Default to 0
+
+    /** use serialVersionUID from JDK 1.0.2 for interoperability */
+    private static final long serialVersionUID = -6849794470754667710L;
+ 
+  .......
+}
+```
+
+我们查看其源码可以知道，String是用char[]来存储的，数组下标为int类型，因此理论上最大能存放的元素个数只有Integer.MAX_VALUE个，这个数也就是2G。所以说char[]数组能存储2G大小的字符。因此在理想情况下也就是内存无限大，堆可以无限大的情况下，一个String类型的极限大小就是2G,长度为2147483647个字符。然而事实上并非如此，执行这段代码的时候便会抛出OutOfMemoryError，这与JVM的限制也是有关系的。
+
+```
+char[] chars = new char[Integer.MAX_VALUE];
+System.out.println(Integer.MAX_VALUE);
+```
+抛出异常：         
+
+```
+java.lang.OutOfMemoryError: Requested array size exceeds VM limit
+```
+
+继续尝试，当执行如下代码时：
+
+```
+char[] chars = new char[Integer.MAX_VALUE - 2];
+System.out.println(Integer.MAX_VALUE);
+```
+
+抛出的异常如下，堆内存也是限制条件之一：
+
+```
+java.lang.OutOfMemoryError: Java heap space
+```
+
+// TODO continue
+
 
 
 
