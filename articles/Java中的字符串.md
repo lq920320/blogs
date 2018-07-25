@@ -4,6 +4,9 @@
 在java中，一提到字符串，首先我们想到的便是String类，然后再处理字符串的过程中，还会用到StringBuffer以及StringBuilder。
 显然，这三者是有区别的，而且在特定的场景下使用对应的类来进行字符串相关的处理效果更佳，接下来在这篇文章中，我们来细细品味这三者的联系与不同。
 
+- [String、StringBuffer和StringBuilder的区别](https://github.com/lq920320/blogs/blob/master/articles/Java%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2.md#stringstringbuffer%E5%92%8Cstringbuilder%E7%9A%84%E5%8C%BA%E5%88%AB)
+- [字符串可以有多长？](https://github.com/lq920320/blogs/blob/master/articles/Java%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2.md#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%AF%E4%BB%A5%E6%9C%89%E5%A4%9A%E9%95%BF)
+
 
 ### String、StringBuffer和StringBuilder的区别
 
