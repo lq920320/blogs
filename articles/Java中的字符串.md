@@ -237,7 +237,7 @@ java.lang.OutOfMemoryError: Java heap space
 
 综上所述，你应该会得到一个长度为Integer.MAX_VALUE（Java规范中通常是2147483647 （2^31 - 1），String类用于内部存储的数组最大的规格）或者是你最大堆内存的一半（因为每个字符占两个字节），以较小者为准。
 
-参考：
+### 参考：
 
 https://blog.csdn.net/kingzone_2008/article/details/9220691
 
