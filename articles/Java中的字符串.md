@@ -126,7 +126,7 @@ StringBuilder类提供与StringBuffer兼容的API，但不保证同步。用于�
 其构造方法如下：
 
 |构造方法|	描述|
-|-|-:|
+|-|-|
 |StringBuilder()|	创建一个容量为16的StringBuilder对象（16个空元素）|
 |StringBuilder(CharSequence cs)|	创建一个包含cs的StringBuilder对象，末尾附加16个空元素|
 |StringBuilder(int initCapacity)|	创建一个容量为initCapacity的StringBuilder对象|
@@ -233,8 +233,13 @@ System.out.println(Integer.MAX_VALUE);
 java.lang.OutOfMemoryError: Java heap space
 ```
 
-// TODO continue
+由于一个字符占两个字节，所以字符串的最大容量限制应该是你最大堆内存的一半，即`Integer.MAX_VALUE/2=1073741823`个字符。
 
+综上所述，你应该会得到一个长度为Integer.MAX_VALUE（Java规范中通常是2147483647 （2^31 - 1），String类用于内部存储的数组最大的规格）或者是你最大堆内存的一半（因为每个字符占两个字节），以较小者为准。
 
+参考：
 
+https://blog.csdn.net/kingzone_2008/article/details/9220691
+
+https://stackoverflow.com/questions/1179983/how-many-characters-can-a-java-string-have
 
