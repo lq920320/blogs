@@ -29,3 +29,9 @@ Here will record my blogs about the study of new tech or how to solve problems I
 1. [Javascript判断对象是否相等](https://github.com/lq920320/blogs/issues/19)
 1. [.editorconfig文件的作用](https://github.com/lq920320/blogs/issues/20)
 1. [我发布了一个毫无意义的npm包](https://github.com/lq920320/blogs/issues/21)
+1. [ArrayList的默认容量是多少](https://github.com/lq920320/blogs/issues/22)
+  
+  
+  
+  
+  
