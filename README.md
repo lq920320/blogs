@@ -31,7 +31,7 @@ Here will record my blogs about the study of new tech or how to solve problems I
 1. [我发布了一个毫无意义的npm包](https://github.com/lq920320/blogs/issues/21)
 1. [ArrayList的默认容量是多少](https://github.com/lq920320/blogs/issues/22)
 1. [关于mysql自增主键的一个面试题](https://github.com/lq920320/blogs/issues/23)  
-  
+1. [关于幂等性](https://github.com/lq920320/blogs/issues/24)
   
   
   
