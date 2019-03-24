@@ -17,6 +17,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [Java项目的远程调试demo](https://github.com/lq920320/remote-debugging-demo)  
 1. [ArrayList的默认容量是多少](https://github.com/lq920320/blogs/issues/22)
 
+
 ## :floppy_disk: 数据库
 
 1. [mysql查询合并查询结果](https://github.com/lq920320/blogs/issues/8)
@@ -25,9 +26,11 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [关于mysql自增主键的一个面试题](https://github.com/lq920320/blogs/issues/23)
 1. [MySQL中关于事务和锁](https://github.com/lq920320/blogs/issues/25) 
 
+
 ## :pencil: 算法
 
 暂时还未开通
+
 
 ## :page_facing_up: 翻译
 1. [机器学习的第一篇翻译](https://github.com/lq920320/blogs/issues/2)
@@ -39,10 +42,12 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [翻译：正在失传的计算机科学](https://github.com/lq920320/blogs/blob/master/articles/translation/computer-science-as-a-lost-art.md)
 1. [渣翻：破坏程序员生产力的12件事](https://github.com/lq920320/blogs/blob/master/articles/translation/top-12-things-that-destroy-developer-productivity.md)
 
+
 ## :wrench: 工具
 
 1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
 1. [elasticsearch 错误日志为乱码的问题](https://github.com/lq920320/blogs/issues/7)
+
 
 ## :notebook: 其他
 
