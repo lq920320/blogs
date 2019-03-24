@@ -9,7 +9,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 
 ## :coffee: Java
-1. [java 8中List<Object>根据Object属性去重代码实现](https://github.com/lq920320/blogs/issues/6)
+1. [java 8中`List<Object>`根据Object属性去重代码实现](https://github.com/lq920320/blogs/issues/6)
 1. [null-safe-date-comparator-for-sorting-in-java-8-stream](https://stackoverflow.com/questions/36361156/null-safe-date-comparator-for-sorting-in-java-8-stream/36361302#36361302) 
 1. [Java read json file demo](https://github.com/lq920320/read-json-demo)
 1. [StringEscapeUtils的介绍以及简单使用](https://github.com/lq920320/blogs/issues/9)
