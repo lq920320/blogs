@@ -50,5 +50,6 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [.editorconfig文件的作用](https://github.com/lq920320/blogs/issues/20)
 1. [我发布了一个毫无意义的npm包](https://github.com/lq920320/blogs/issues/21) 
 1. [关于幂等性](https://github.com/lq920320/blogs/issues/24) 
+1. 备忘录：[开发人员学习资料（developer-learning）](https://github.com/developer-learning)
 
 
