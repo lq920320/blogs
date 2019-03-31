@@ -24,6 +24,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [Mysql:如何获取数据库表的数据大小](https://github.com/lq920320/blogs/issues/15)
 1. [关于mysql自增主键的一个面试题](https://github.com/lq920320/blogs/issues/23)
 1. [MySQL中关于事务和锁](https://github.com/lq920320/blogs/issues/25) 
+1. [MySQL索引知多少](https://github.com/lq920320/blogs/issues/26)
 
 ## :pencil: 算法
 暂时还未开通
