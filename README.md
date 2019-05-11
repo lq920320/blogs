@@ -19,6 +19,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [ArrayList的默认容量是多少](https://github.com/lq920320/blogs/issues/22)
 1. [`@Autowire`和`@Resource`的区别](https://github.com/lq920320/blogs/issues/27)
 1. [谈谈`@Async`注解以及`Future`类型 ](https://github.com/lq920320/blogs/issues/28)
+1. [分享Java中通过 Stream 对列表去重的几个方法](https://github.com/lq920320/blogs/issues/31)
 
 ## :floppy_disk: 数据库
 1. [mysql查询合并查询结果](https://github.com/lq920320/blogs/issues/8)
