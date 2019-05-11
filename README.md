@@ -55,5 +55,6 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [关于幂等性](https://github.com/lq920320/blogs/issues/24) 
 1. 备忘录：[开发人员学习资料（developer-learning）](https://github.com/developer-learning)
 1. [mybatis框架xml文件中"<="问题的解决](https://github.com/lq920320/blogs/issues/29)
+1. [关于Mybatis的几个问答整理](https://github.com/lq920320/blogs/issues/30)
 
 
