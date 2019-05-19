@@ -30,7 +30,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [MySQL索引知多少](https://github.com/lq920320/blogs/issues/26)
 
 ## :pencil: 算法
-暂时还未开通
+1. [由 LeetCode 题目：Single Number 初见位运算](https://github.com/lq920320/blogs/issues/32)
 
 ## :page_facing_up: 翻译
 1. [机器学习的第一篇翻译](https://github.com/lq920320/blogs/issues/2)
