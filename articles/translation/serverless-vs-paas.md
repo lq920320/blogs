@@ -30,7 +30,7 @@ Serverless 应用程序可以即时、自动以及按需扩展，无需开发人
 
 ### Serverless 应用程序是否可以部署在网络边缘？
 
-serverless 代码虽不能在特定服务器上，但可以在互联网的任何地方运行，这使得其可以非常靠近网络边缘的最终用户来部署 serverless 应用程序，从而大大减少延迟。Service Worker 和 [Cloudflare Worker](https://www.cloudflare.com/products/cloudflare-workers/) 便是靠近那些用户运行的 serverless 函数（参看 [Serverless JavaScript 是如何工作的？](https://www.cloudflare.com/learning/serverless/serverless-javascript/)）。
+serverless 代码虽不能在特定服务器上，但可以在互联网的任何地方运行，这使得其可以非常靠近网络边缘的最终用户来部署 serverless 应用程序，从而大大减少延迟。Service Worker 和 [Cloudflare Worker](https://www.cloudflare.com/products/cloudflare-workers/) 便是靠近那些用户运行的 serverless 函数的例子（参看 [Serverless JavaScript 是如何工作的？](https://www.cloudflare.com/learning/serverless/serverless-javascript/)）。
 
 ### 使用 PaaS 构建的应用程序是否可以部署在网络边缘？
 
