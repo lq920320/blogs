@@ -42,5 +42,5 @@ serverless 代码虽不能在特定服务器上，但可以在互联网的任何
 
 - 原图：
 
-<img src='images/paas-serverless-comparison.jpg' />
+<img src='images/paas-serverless-comparison.svg' />
 
