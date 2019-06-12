@@ -49,6 +49,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 ## :notebook: 其他
 1. [《代码大全》关于重构的章节内容概要](https://github.com/lq920320/blogs/issues/1)
+1. [《函数式编程思想》部分章节笔记](https://github.com/lq920320/blogs/blob/master/articles/Functional-Thinking.md)
 1. [函数编程案例分析——完美数分类](https://github.com/lq920320/blogs/blob/master/articles/perfectNumber.md)
 1. [Javascript将json数据导出为csv文件](https://github.com/lq920320/blogs/issues/17)
 1. [Javascript判断对象是否相等](https://github.com/lq920320/blogs/issues/19)
