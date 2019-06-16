@@ -32,6 +32,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 ## :pencil: 算法
 1. [由 LeetCode 题目：Single Number 初见位运算](https://github.com/lq920320/blogs/issues/32)
+1. [个人算法实现代码仓库](https://github.com/lq920320/algorithm-java-test)
 
 ## :page_facing_up: 翻译
 1. [机器学习的第一篇翻译](https://github.com/lq920320/blogs/issues/2)
