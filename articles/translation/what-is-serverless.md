@@ -23,8 +23,6 @@
 
 ### 无服务器计算可以提供哪种后端服务？
 
-Most serverless providers offer database and storage services to their customers, and many also have [Function-as-a-Service (FaaS)]() platforms, like [Cloudflare Workers](https://www.cloudflare.com/products/cloudflare-workers/). These platforms can execute pieces of code on the edge without storing any data.
-
 大多数无服务器提供商为其客户提供数据库和存储服务，许多还提供 [功能即服务（FaaS）](https://www.cloudflare.com/learning/serverless/glossary/function-as-a-service-faas/) 平台，如 [Cloudflare Workers](https://www.cloudflare.com/products/cloudflare-workers/)。 这些平台可以在边缘上执行代码片段而不存储任何数据。
 
 ### 无服务器计算有哪些优势？
