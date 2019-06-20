@@ -46,7 +46,7 @@ PaaS 提供者会管理和维护数据库。它们通常也会为开发人员提
 
 PaaS 是云计算服务模型中 IaaS 的下一层，IaaS 中包含的所有内容也包含在 PaaS 中。PaaS 提供商不仅可以管理服务器、存储和物理数据中心，还可以从 IaaS 提供商处购买。
 
-<img src='images/saas-paas-iaas-pyramid.svg' />
+<img src='images/saas-paas-iaas-cloud-pyramid.svg' />
 
 ### 开发人员为什么使用 PaaS？
 
