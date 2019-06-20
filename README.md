@@ -45,6 +45,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [渣翻：破坏程序员生产力的12件事](https://github.com/lq920320/blogs/blob/master/articles/translation/top-12-things-that-destroy-developer-productivity.md)
 1. [渣翻：Serverless 与 PaaS 的不同](https://github.com/lq920320/blogs/blob/master/articles/translation/serverless-vs-paas.md)
 1. [渣翻：什么是无服务器计算](https://github.com/lq920320/blogs/blob/master/articles/translation/what-is-serverless.md)
+1. [渣翻：什么是 PaaS](https://github.com/lq920320/blogs/blob/master/articles/translation/what-is-paas.md)
 
 ## :wrench: 工具
 1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
