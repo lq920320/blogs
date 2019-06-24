@@ -1,6 +1,6 @@
 ## Serverless 与 Platform-as-a-Service（PaaS）的不同
 
-由于 [无服务计算（serverless computing）](https://www.cloudflare.com/learning/serverless/what-is-serverless/)以及 [平台即服务（platform-as-a-service，PaaS）](https://www.cloudflare.com/learning/serverless/glossary/platform-as-a-service-paas/)都是使整个后端对开发人员不可见的后端框架，所以还是有些相似指出的。然而，两者之间还是存在几处较大差异的，多数用例适用于其中一种，而非全部兼容。PaaS 和 Serverless 之间的主要差别在于可扩展性，定价，启动时间，工具以及在[网络边缘](https://www.cloudflare.com/learning/serverless/glossary/what-is-edge-computing/)部署的能力。
+由于 [无服务计算（serverless computing）](https://www.cloudflare.com/learning/serverless/what-is-serverless/)以及 [平台即服务（platform-as-a-service，PaaS）](https://www.cloudflare.com/learning/serverless/glossary/platform-as-a-service-paas/)都是使整个后端对开发人员不可见的后端框架，所以还是有些相似之处的。然而，两者之间还是存在几处较大差异，多数用例适用于其中一种，而非全部兼容。PaaS 和 Serverless 之间的主要差别在于可扩展性，定价，启动时间，工具以及在[网络边缘](https://www.cloudflare.com/learning/serverless/glossary/what-is-edge-computing/)部署的能力。
 
 <img src='images/serverless_vs_paas.jpg' />
 
