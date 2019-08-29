@@ -228,56 +228,126 @@ public int evalRPN(String[] tokens) {
 
 ![](images/stack_output_9.png)
 
-至此，我们变完成了中缀表达式到后缀表达式的转换。如我们所见，这种转换只需要 `O(N)` 时间并经过一趟输入后即可完成。可以通过指定减法和加法有相同的优先级以及乘法和除法有相同的优先级而将减法和除法添加到指令集中去。需要注意的是，表达式 `a - b - c` 应该转换成 `a b - c -` 而不是 `a b c - -` ，即顺序问题。那么，接下来便是代码时刻了，由于题目中不包含 `*`、`/` 号，所以代码里也就没有考虑，想要完善的同学可以自行补全：
+至此，我们变完成了中缀表达式到后缀表达式的转换。如我们所见，这种转换只需要 `O(N)` 时间并经过一趟输入后即可完成。可以通过指定减法和加法有相同的优先级以及乘法和除法有相同的优先级而将减法和除法添加到指令集中去。需要注意的是，表达式 `a - b - c` 应该转换成 `a b - c -` 而不是 `a b c - -` ，即顺序问题。那么，接下来便是代码时刻了，由于题目中不包含 `*`、`/` 号，所以代码里也就没有考虑，想要完善的同学可以自行补全（不过可以肯定的一点是，这种方法非常耗时与消耗空间，有更多更优解，这种解法可以帮助理解）：
 
 ```java
    public int calculate(String s) {
-        int result = 0;
-        Stack<Integer> stack = new Stack<>();
-        int operand = 0;
-        int sign = 1; // 1 代表正，-1 代表负
+        // 中缀转后缀
+        String rpnExpression = infixToPostfix(expression);
+        // 计算后缀
+        return rpnCalculate(rpnExpression);
+    }
+	
+	private String infixToPostfix(String infix) {
+        // 清除空格
+        infix = infix.replaceAll("\\s", "");
+        // 最终结果
+        StringBuilder rpnExpression = new StringBuilder();
+        // 运算符栈
+        Stack<Character> operatorStack = new Stack<>();
+        // 操作数
+        int length = infix.length();
+        int i = 0;
+        char token;
+        int priority;
+        while (i < length) {
+            token = infix.charAt(i);
+            priority = priority(token);
+            if (priority == 0 && token != '(' && token != ')') {
+                rpnExpression.append(token);          // Puts token in postfix String
 
-        int length = s.length();
-        for (int i = 0; i < length; i++) {
-            char ch = s.charAt(i);
-            if (Character.isDigit(ch)) {
-                // 形成操作数，因为它可能超过一位数
-                operand = 10 * operand + (ch - '0');
-            } else if (ch == '+') {
-                // 使用结果，符号，操作数计算左边的表达式
-                result += sign * operand;
-                // 保存最近遇到的 '+' 号
-                sign = 1;
-                // 重置操作数
-                operand = 0;
-            } else if (ch == '-') {
-                result += sign * operand;
-                sign = -1;
-                operand = 0;
-            } else if (ch == '(') {
-                // 将结果入栈，为了等下的计算
-                // 先是结果，再是符号
-                stack.push(result);
-                stack.push(sign);
-                // 重置操作数和结果，接着开始计算新的子表达式
-                sign = 1;
-                result = 0;
-            } else if (ch == ')') {
-                // 使用结果，符号，操作数计算左边的表达式
-                result += sign * operand;
-                // ')' 在一组括号内标记表达式的结尾
-                // 其结果乘以堆栈顶部的符号，因为stack.pop() 是括号前的符号
-                result *= stack.pop();
-                // 然后加上栈顶的下一个操作数
-                // (operand on stack) + (sign on stack * (result from parenthesis))
-                result += stack.pop();
-                // 重置操作数
-                operand = 0;
+                // Keeps 2 or more digit numbers together
+                if ((i + 1) < length && priority(infix.charAt(i + 1)) != 0) {
+                    rpnExpression.append(" ");
+                }
+            } else if (token == '(') {
+                operatorStack.push(token);
+            } else if (token == ')') {
+                // 避免出现多个空格
+                if (!rpnExpression.toString().endsWith(" ")) {
+                    rpnExpression.append(" ");          // put a space in postfix String
+                }
+
+                while (operatorStack.peek() != '(') {      // possible error
+                    rpnExpression.append(operatorStack.pop()).append(" ");  // put operator from stack in postfix String and leave a space
+                }
+                operatorStack.pop();                // Eliminates '(' from the stack
+            } else if (priority(token) > 0) {
+                // compares operator from the stack in next operator from infix string,
+                // the operator with the highest precedences goes in the postfix string
+                while (!operatorStack.isEmpty() && operatorStack.peek() != '(' && priority(token) <= priority(operatorStack.peek())) {
+                    rpnExpression.append(operatorStack.pop()).append(" ");
+                }
+                operatorStack.push(token);  // first operator to go in the stack
             }
+            i++;
         }
-        return result + (sign * operand);
+
+        rpnExpression.append(" ");    // puts a space in the postfix string
+
+        // put the rest of the operators in the stack in the postfix string
+        while (!operatorStack.isEmpty()) {
+            rpnExpression.append(operatorStack.pop()).append(" ");
+        }
+
+        return rpnExpression.toString();
     }
 
+	private int rpnCalculate(String rpnExpression) {
+        // rpnExpression 是以空格为分隔符的 rpn 表达式
+        // 避免出现两个空格的情况（hard code 解决，有更优解决方案欢迎给出评论）
+        rpnExpression = rpnExpression.replace("  ", " ");
+        String[] tokens = rpnExpression.split(" ");
+        Stack<Integer> stack = new Stack<>();
+        int result;
+        for (String t : tokens) {
+            switch (t) {
+                case "+":
+                    result = stack.pop() + stack.pop();
+                    break;
+                case "*":
+                    result = stack.pop() * stack.pop();
+                    break;
+                case "/":
+                    // 除法需要保持顺序，比如 "13", "5", "/" => 应该是 13 / 5 而不是 5 / 13
+                    int last = stack.pop();
+                    result = stack.pop() / last;
+                    break;
+                case "-":
+                    // 减法顺序和除法一样
+                    last = stack.pop();
+                    result = stack.pop() - last;
+                    break;
+                default:
+                    result = Integer.parseInt(t);
+            }
+            // 将计算结果或者元素本身推入栈中
+            stack.push(result);
+        }
+        return stack.pop();
+    }
+
+    /**
+     * 获取运算符的优先级
+     *
+     * @param character
+     * @return
+     */
+    private int priority(Character character) {
+        switch (character) {
+            case '+':
+            case '-':
+                return 1;
+            case '*':
+            case '/':
+                return 2;
+            case '(':
+            case ')':
+                return 3;
+            default:
+                return 0;
+        }
+    }
 ```
 
 #### 四 、总结
