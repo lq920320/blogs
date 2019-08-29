@@ -34,6 +34,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 ## :pencil: 算法
 1. [由 LeetCode 题目：Single Number 初见位运算](https://github.com/lq920320/blogs/issues/32)
+1. [了解一下栈吧：最近杠上了计算器](https://github.com/lq920320/blogs/blob/master/articles/algorithm/leetcode_stack.md)
 1. [个人算法实现代码仓库](https://github.com/lq920320/algorithm-java-test)
 
 ## :page_facing_up: 翻译
