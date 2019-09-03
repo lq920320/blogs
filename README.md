@@ -58,7 +58,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 ## :notebook: 读书笔记
 
-1. [《深入理解 Java 虚拟机》（一）：Java 内存区域]()
+1. [《深入理解 Java 虚拟机》（一）：Java 内存区域](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM(%E4%B8%80).md)
 
 ## :notebook: 其他
 1. [《代码大全》关于重构的章节内容概要](https://github.com/lq920320/blogs/issues/1)
