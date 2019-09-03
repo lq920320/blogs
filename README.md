@@ -56,6 +56,10 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
 1. [elasticsearch 错误日志为乱码的问题](https://github.com/lq920320/blogs/issues/7)
 
+## :notebook: 读书笔记
+
+1. [《深入理解 Java 虚拟机》（一）：Java 内存区域]()
+
 ## :notebook: 其他
 1. [《代码大全》关于重构的章节内容概要](https://github.com/lq920320/blogs/issues/1)
 1. [《函数式编程思想》部分章节笔记](https://github.com/lq920320/blogs/blob/master/articles/Functional-Thinking.md)
