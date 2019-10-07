@@ -23,6 +23,8 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [谈谈`@Async`注解以及`Future`类型 ](https://github.com/lq920320/blogs/issues/28)
 1. [分享Java中通过 Stream 对列表去重的几个方法](https://github.com/lq920320/blogs/issues/31)
 1. [Spring中几个注解的简单说明](https://github.com/lq920320/blogs/issues/34)
+1. [Java 8 中 Map 骚操作之 `merge()` 的用法](https://github.com/lq920320/blogs/issues/36)
+
 
 ## :floppy_disk: 数据库
 1. [mysql查询合并查询结果](https://github.com/lq920320/blogs/issues/8)
