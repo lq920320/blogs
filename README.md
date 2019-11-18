@@ -62,9 +62,10 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 ## :notebook: 读书笔记
 
-1. [《深入理解Java虚拟机》（一）：Java 内存区域](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM(%E4%B8%80).md)
-1. [《深入理解Java虚拟机》（二）：对象的创建](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM(%E4%BA%8C).md)
-1. [《深入理解Java虚拟机》（三）：对象的存活状态](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM(%E4%B8%89).md)
+1. [《深入理解Java虚拟机》（一）：Java 内存区域](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-01.md)
+1. [《深入理解Java虚拟机》（二）：对象的创建](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-02.md)
+1. [《深入理解Java虚拟机》（三）：对象的存活状态](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-03.md)
+1. [《《深入理解Java虚拟机》（三）：垃圾收集算法以及内存分配策略》](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-04.md)
 
 ## :notebook: 其他
 1. [《代码大全》关于重构的章节内容概要](https://github.com/lq920320/blogs/issues/1)
