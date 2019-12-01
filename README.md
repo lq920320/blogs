@@ -9,7 +9,6 @@ Here will record my blog about the study of new tech or how to solve problems I 
 | Java | 数据库 | 算法 | 翻译 | 工具 | 其他 | 
 
 
-
 ## :coffee: Java
 1. [java 8中`List<Object>`根据Object属性去重代码实现](https://github.com/lq920320/blogs/issues/6)
 1. [null-safe-date-comparator-for-sorting-in-java-8-stream](https://stackoverflow.com/questions/36361156/null-safe-date-comparator-for-sorting-in-java-8-stream/36361302#36361302) 
@@ -59,18 +58,21 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 ## :wrench: 工具
 1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
-1. [elasticsearch 错误日志为乱码的问题](https://github.com/lq920320/blogs/issues/7)
+1. [Elasticsearch 错误日志为乱码的问题](https://github.com/lq920320/blogs/issues/7)
+1. [个人常用工具汇总&记录](https://github.com/lq920320/blogs/blob/master/articles/personal-tools.md)
 
 ## :notebook: 读书笔记
 
+1. [《代码大全》关于重构的章节内容概要](https://github.com/lq920320/blogs/issues/1)
+1. [《代码大全》关于代码调整的笔记](https://github.com/lq920320/blogs/blob/master/articles/%E4%BB%A3%E7%A0%81%E8%B0%83%E6%95%B4.md)
+1. [《函数式编程思想》部分章节笔记](https://github.com/lq920320/blogs/blob/master/articles/Functional-Thinking.md)
 1. [《深入理解Java虚拟机》（一）：Java 内存区域](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-01.md)
 1. [《深入理解Java虚拟机》（二）：对象的创建](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-02.md)
 1. [《深入理解Java虚拟机》（三）：对象的存活状态](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-03.md)
-1. [《《深入理解Java虚拟机》（三）：垃圾收集算法以及内存分配策略》](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-04.md)
+1. [《《深入理解Java虚拟机》（四）：垃圾收集算法以及内存分配策略》](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-04.md)
 
 ## :notebook: 其他
-1. [《代码大全》关于重构的章节内容概要](https://github.com/lq920320/blogs/issues/1)
-1. [《函数式编程思想》部分章节笔记](https://github.com/lq920320/blogs/blob/master/articles/Functional-Thinking.md)
+
 1. [函数编程案例分析——完美数分类](https://github.com/lq920320/blogs/blob/master/articles/perfectNumber.md)
 1. [Javascript将json数据导出为csv文件](https://github.com/lq920320/blogs/issues/17)
 1. [Javascript判断对象是否相等](https://github.com/lq920320/blogs/issues/19)
