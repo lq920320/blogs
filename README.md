@@ -2,7 +2,7 @@
 Blog of personal.           
 Here will record my blog about the study of new tech or how to solve problems I met.
 
-![Total visitor](https://visitor-count-badge.herokuapp.com/total.svg?repo_id=${lq920320/blogs})
+![Total visitor](https://visitor-badge.glitch.me/badge?page_id=lq920320.blogs)
 
 | [:coffee:](#coffee-Java) | [:floppy_disk:](#floppy_disk-数据库) | [:pencil:](#pencil-算法) | [:page_facing_up:](#page_facing_up-翻译) | [:wrench:](#wrench-工具) | [:notebook:](#notebook-其他) |
 | :---: | :---: | :---: | :---: | :---: | :---: |
