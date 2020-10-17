@@ -73,6 +73,15 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [《深入理解Java虚拟机》（三）：对象的存活状态](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-03.md)
 1. [《深入理解Java虚拟机》（四）：垃圾收集算法以及内存分配策略](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-04.md)
 
+## :wrench: DevOps
+
+- [ ] 1. DevOps 落地实践（一）：CI、CD 与 DevOps 是什么？
+- [ ] 2. DevOps 落地实践（二）：Docker 篇
+- [ ] 3. DevOps 落地实践（三）：Kubenetes(k8s) 篇
+- [ ] 4. DevOps 落地实践（四）：Jenkins 篇
+- [ ] 5. DevOps 落地实践（五）：GitLab runner 篇
+- [ ] 6. DevOps 落地实践（六）：GitHub Action 篇
+
 ## :notebook: 其他
 
 1. [函数编程案例分析——完美数分类](https://github.com/lq920320/blogs/blob/master/articles/perfectNumber.md)
