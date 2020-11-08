@@ -58,6 +58,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [渣翻：开发人员是如何思考的——一次关于一个简单网页应用背后计划与设计的演练](https://github.com/lq920320/blogs/blob/master/articles/translation/a-walk-through-the-developer-thought-process.md)
 1. [渣翻：GraphQL 相对于 REST 的优势](https://github.com/lq920320/blogs/blob/master/articles/translation/graphql-vs-rest-whats-the-advantage.md)
 1. [渣翻：Dockerfile 安全性最佳实践](https://github.com/lq920320/blogs/blob/master/articles/translation/dockerfile-security-best-practice.md)
+1. [渣翻：由两分钟规则开始 ](https://github.com/lq920320/blogs/blob/master/articles/translation/2-minute-rule.md)
 
 ## :wrench: 工具
 1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
