@@ -118,7 +118,7 @@ String indentedByToSpaces = """
         """;
 ```
 
-开头的 `"""` 并不计入缩进，因此不必将其与文本块对其。例如，以下两个示例均产生具有相同缩进的字符串：
+开头的 `"""` 并不计入缩进，因此不必将其与文本块对齐。例如，以下两个示例均产生具有相同缩进的字符串：
 
 ```java
 String indentedByToSpaces = """
@@ -202,7 +202,7 @@ Exception in thread "main" java.lang.NullPointerException:
 
 `Helpful NullPointerExceptions` 扩展是在 JVM 中实现的，因此，即使使用旧 Java 版本编译的代码，在你使用其他 JVM 语言（如 `Scala` 或 `Kotlin`）时，可以获得相同的好处。
 
-注意，并非所有 `NPE` 都会获取此额外信息，只有 JVM 在一下条件下创建并抛出的信息：
+注意，并非所有 `NPE` 都会获取此额外信息，只有 JVM 在以下条件下创建并抛出的信息：
 
 - 对 `null` 进行读取或写入字段
 - 调用 `null` 的方法
@@ -354,7 +354,7 @@ MyAwesomeClass awesome = new MyAwesomeClass();
 
 #### 提示：注意保持可读性
 
-第一种情况时从源代码中删除显式类型信息时，使其可读性降低。
+第一种情况是从源代码中删除显式类型信息时，使其可读性降低。
 
 当然，IDE 可以在这方面提供帮助，但是在代码审查期间或当您快速扫描代码时，它可能会损害可读性。例如，考虑工厂类和建造类：您必须找到负责对象初始化的代码来确定类型。
 
@@ -394,7 +394,7 @@ private void longerMethod() {
 
 第二种情况是在使用 `var` 时会删除所有可用的类型信息，甚至于无法进行推断。在大多数情况下，Java 编译器会捕获这些情况。例如， `var` 无法推断 `lambda` 或方法引用的类型，因为对于这些功能，编译器依赖于左侧表达式来找出类型。
 
-然而，也有一些例外。例如，`var` 和钻石操作符（Diamond Operator）配合使用时效果就不是很好。钻石操作符是一个很好的功能，可以在创建繁星实例时从表达式的右侧删除一些详细信息：
+然而，也有一些例外。例如，`var` 和钻石操作符（Diamond Operator）配合使用时效果就不是很好。钻石操作符是一个很好的功能，可以在创建泛型实例时从表达式的右侧删除一些详细信息：
 
 ```java
 Map<String, String> myMap = new HashMap<String, String>(); // Pre Java 7
@@ -434,7 +434,7 @@ double d = 1;
 
 由于 `var` 有很多陷阱，因此保守地引入它是比较好的，并且只能在局部变量上使用，该范围通常非常有限。
 
-此外，当你谨慎地引入之后，`var` 并不是新的关键字，而是保留的类型名称。这意味着它仅在用作类型名称是才具有特殊含义，其他任何地方 `var` 仍然是有效的标识符。
+此外，当你谨慎地引入之后，`var` 并不是新的关键字，而是保留的类型名称。这意味着它仅在用作类型名称时才具有特殊含义，其他任何地方 `var` 仍然是有效的标识符。
 
 当前，`var` 没有不可变的对应项（例如 `val` 或 `const`）来声明最终变量并使用单个关键字来推断其类型。希望我们会在将来的版本中得到它，直到那时，我们可以使用 `final var`。
 
@@ -485,7 +485,7 @@ try {
 }
 ```
 
-使用 `try-with-resources` 资源可以自动释放，而无需花费跟多时间：
+使用 `try-with-resources` 资源可以自动释放，而无需花费更多时间：
 
 ```java
 try (BufferedReader br = new BufferedReader(...)) {
@@ -534,7 +534,7 @@ br.readLine(); // Boom!
 
 **可用版本：`JDK 9` （Milling Project Coin）**
 
-在 Java 8 中，当 “_” 用作标识符是，编译器会发出警告。Java 9 采取了进一步的措施，使得单独使用的下划线字符成为非法标识符，并保留了该名称以在将来具有特殊语义：
+在 Java 8 中，当 “_” 用作标识符时，编译器会发出警告。Java 9 采取了进一步的措施，使得单独使用的下划线字符成为非法标识符，并保留了该名称以在将来具有特殊语义：
 
 ```java
 int _ = 10; // Compile error
@@ -575,7 +575,7 @@ if (obj instanceof String) {
 }
 ```
 
-`JEP 305` 拓展了 `instanceof` ，是这种典型场景不再那么冗长：
+`JEP 305` 拓展了 `instanceof` ，使这种典型场景不再那么冗长：
 
 ```java
 if (obj instanceof String s) {
@@ -611,7 +611,7 @@ double area = switch (shape) {
 
 
 ### 链接
-- Java 版本支持 RoadMap：https://www.oracle.com/java/technologies/java-se-support-roadmap.html
+- Java 版本支持 roadmap：https://www.oracle.com/java/technologies/java-se-support-roadmap.html
 
 
 
