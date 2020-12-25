@@ -80,7 +80,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 - [ ] 1. DevOps 落地实践（一）：CI、CD 与 DevOps 是什么？
 - [ ] 2. DevOps 落地实践（二）：Docker 篇
-- [ ] 3. DevOps 落地实践（三）：Kubenetes(k8s) 篇
+- [ ] 3. DevOps 落地实践（三）：Kubernetes(k8s) 篇
 - [ ] 4. DevOps 落地实践（四）：Jenkins 篇
 - [ ] 5. DevOps 落地实践（五）：GitLab runner 篇
 - [ ] 6. DevOps 落地实践（六）：GitHub Action 篇
@@ -97,5 +97,6 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [mybatis框架xml文件中"<="问题的解决](https://github.com/lq920320/blogs/issues/29)
 1. [关于Mybatis的几个问答整理](https://github.com/lq920320/blogs/issues/30)
 1. [`git clone` 遇到的一个小问题](https://github.com/lq920320/blogs/blob/master/articles/other/fix-git-clone.md)
+1. [计算机网络：`traceroute` 是什么](https://github.com/lq920320/blogs/blob/master/articles/what-is-traceroute.md)
 
 
