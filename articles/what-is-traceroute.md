@@ -4,7 +4,7 @@
 
 ![](images/traceroute.png)
 
-而在 `CentOS` 的服务器上运行时（如果未安装 `traceroute`，先执行 `yum install traceroute`），它又是这么展示的：
+而在 `CentOS` 的服务器上运行 `traceroute www.baidu.com` 时（如果未安装 `traceroute`，先执行 `yum install traceroute`），它又是这么展示的：
 
 ![](images/traceroute-centos.png)
 
