@@ -99,6 +99,6 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [`git clone` 遇到的一个小问题](https://github.com/lq920320/blogs/blob/master/articles/other/fix-git-clone.md)
 1. [计算机网络：`traceroute` 是什么](https://github.com/lq920320/blogs/blob/master/articles/what-is-traceroute.md)
 1. [老婆饼里没老婆之位运算实现四则运算](https://github.com/lq920320/blogs/blob/master/articles/bit-operation-calculator.md)
-1. [Bug 是怎么来的]()
+1. [Bug 是怎么来的](https://github.com/lq920320/blogs/blob/master/articles/jokes/Bug%20%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84.md)
 
 
