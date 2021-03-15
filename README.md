@@ -77,7 +77,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [《深入理解Java虚拟机》（四）：垃圾收集算法以及内存分配策略](https://github.com/lq920320/blogs/blob/master/articles/notes/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JVM-04.md)
 1. [《软件设计的哲学》（一）：命名](https://github.com/lq920320/blogs/blob/master/articles/notes/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%93%B2%E5%AD%A6-01%EF%BC%9A%E5%91%BD%E5%90%8D.md)
 1. [《软件设计的哲学》（二）：注释](https://github.com/lq920320/blogs/blob/master/articles/notes/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%93%B2%E5%AD%A6-02%EF%BC%9A%E6%B3%A8%E9%87%8A.md)
-1. [《软件设计的哲学》（三）：总结]()
+1. [《软件设计的哲学》（三）：总结](https://github.com/lq920320/blogs/blob/master/articles/notes/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%93%B2%E5%AD%A6-03%EF%BC%9A%E6%80%BB%E7%BB%93.md)
 
 ## :wrench: DevOps
 
