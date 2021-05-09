@@ -2,7 +2,7 @@
 
 ### 背景
 
-关于 git 实用过程中的工作流，常见的有以下几种：
+关于 git 使用过程中的工作流，常见的有以下几种：
 
 - **Git flow** ：项目一般存在两个长期分支，稳定主分支（master/main）、开发分支（develop）；以及三种短期分支，功能分支（feature）、补丁分支（hotfix）、预发分支（release），一旦完成开发，它们就会被合并进`develop`或`master`，然后被删除。
 - **Github flow** ：Github flow 是Git flow的简化版，专门配合”持续发布”。它是 Github.com 使用的工作流程。根据需求，从master拉出新分支，不区分功能分支或补丁分支。新分支开发完成后，或者需要讨论的时候，就向master发起一个pull request（简称PR）。你的Pull Request被接受，合并进master，重新部署后，原来你拉出来的那个分支就被删除。
