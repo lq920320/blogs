@@ -105,5 +105,6 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [老婆饼里没老婆之位运算实现四则运算](https://github.com/lq920320/blogs/blob/master/articles/bit-operation-calculator.md)
 1. [Bug 是怎么来的](https://github.com/lq920320/blogs/blob/master/articles/jokes/Bug%20%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84.md)
 1. [M1 安装日志（一）：基础开发软件列表](https://github.com/lq920320/blogs/blob/master/articles/other/m1-softwares-for-development-1.md)
+1. [git stash 的用法](https://github.com/lq920320/blogs/blob/master/articles/other/git-stash.md)
 
 
