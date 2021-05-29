@@ -61,6 +61,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [渣翻：由两分钟规则开始 ](https://github.com/lq920320/blogs/blob/master/articles/translation/2-minute-rule.md)
 1. [渣翻：从 Java 8 到 Java 15 的新语言特性](https://github.com/lq920320/blogs/blob/master/articles/translation/new-language-features-since-java-8-to-15.md)
 1. [渣翻：如何清理 Docker 数据](https://github.com/lq920320/blogs/blob/master/articles/translation/clean-up-docker.md)
+1. [渣翻：作为终生程序员的一些教训](https://github.com/lq920320/blogs/blob/master/articles/translation/lessons-of-being-programmer.md)
 
 ## :wrench: 工具
 1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
