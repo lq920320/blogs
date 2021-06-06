@@ -26,6 +26,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [在 Spring Boot 项目中单独使用 spring cloud feign 替代 HTTP Client ：渣男语录的学习](https://github.com/lq920320/blogs/blob/master/articles/use-spring-cloud-feign-in-spring-boot.md)
 1. [对象中某属性的求和](https://github.com/lq920320/blogs/issues/37)
 1. [Lombok 中 `@Accessor` 属性的用法](https://github.com/lq920320/blogs/blob/master/articles/lombok-accessor-use.md)
+1. [有趣的 `sorted()`](https://github.com/lq920320/blogs/blob/master/articles/java/fun-sorted-in-java8.md)
 
 
 ## :floppy_disk: 数据库
