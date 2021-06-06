@@ -20,7 +20,7 @@
         aList.add(7);
         aList.add(6);
         return aList;
-        }
+    }
 ```
 
 可以使用 `Stream` 的方式进行直接排序，这里是创建了一个新的排序后的列表：
@@ -54,15 +54,15 @@
 
 ```java
     @SuppressWarnings({"unchecked", "rawtypes"})
-default void sort(Comparator<? super E>c){
-        Object[]a=this.toArray();
-        Arrays.sort(a,(Comparator)c);
-        ListIterator<E> i=this.listIterator();
-        for(Object e:a){
-        i.next();
-        i.set((E)e);
+    default void sort(Comparator<? super E>c){
+        Object[]a = this.toArray();
+        Arrays.sort(a, (Comparator)c);
+        ListIterator<E> i = this.listIterator();
+        for(Object e:a) {
+            i.next();
+            i.set((E)e);
         }
-        }
+    }
 ```
 
 可以看到，其参数是一个函数式接口（由 `@FunctionalInterface` 修饰的接口类） `Comparator`
@@ -71,7 +71,7 @@ default void sort(Comparator<? super E>c){
 
 ```java
     @Test
-public void listSort(){
+    public void listSort(){
         List<Integer> aList=getTestList();
 
         System.out.println("排序前：");
@@ -82,7 +82,7 @@ public void listSort(){
 
         aList.forEach(a->System.out.printf("%4d",a));
         System.out.println();
-        }
+    }
 ```
 
 这样我们也可以得到同样的结果：
@@ -115,21 +115,21 @@ public void listSort(){
         aList.add(6);
         aList.add(null);
         return aList;
-        }
+    }
 ```
 
 可以看到，`null` 值穿插其中，这时候我们就要考虑相关的需求了，你是想要 `null` 值排在前面还是后面呢？`Comparator` 中 `comparing` 其中的一种实现源码如下：
 
 ```java
-public static<T, U> Comparator<T> comparing(
-        Function<? super T,?extends U>keyExtractor,
-        Comparator<? super U>keyComparator)
+public static <T, U> Comparator<T> comparing(
+            Function<? super T, ? extends U> keyExtractor,
+            Comparator<? super U> keyComparator)
         {
-        Objects.requireNonNull(keyExtractor);
-        Objects.requireNonNull(keyComparator);
-        return(Comparator<T> &Serializable)
-        (c1,c2)->keyComparator.compare(keyExtractor.apply(c1),
-        keyExtractor.apply(c2));
+            Objects.requireNonNull(keyExtractor);
+            Objects.requireNonNull(keyComparator);
+            return (Comparator<T> & Serializable)
+            (c1, c2) -> keyComparator.compare(keyExtractor.apply(c1),
+                                              keyExtractor.apply(c2));
         }
 ```
 
@@ -137,34 +137,35 @@ public static<T, U> Comparator<T> comparing(
 
 ```java
     @Test
-public void listNullTest(){
-        List<Integer> aList=getTestListWithNull();
+    public void listNullTest() {
+        List<Integer> aList = getTestListWithNull();
 
         System.out.println("排序前：");
-        aList.forEach(a->{
-        if(a!=null){
-        System.out.printf("%4d",a);
-        }else{
-        System.out.printf("%8s",a);
-        }
+        aList.forEach(a -> {
+            if (a != null) {
+                System.out.printf("%4d", a);
+            } else {
+                System.out.printf("%8s", a);
+            }
         });
         System.out.println("\n排序后：");
         // 正常的排序会报错
         // aList.sort(Comparator.comparing(a -> a)); // throw NPE
-        aList=aList.stream().sorted(
-        // nullsLast() / nullsFirst()
-        // 对应的整个列表的顺序为： Comparator.naturalOrder() 正序；Comparator.reverseOrder() 反序
-        Comparator.comparing(a->a,Comparator.nullsLast(Comparator.naturalOrder()))
+        aList = aList.stream().sorted(
+            // nullsLast() / nullsFirst()
+            // 对应的整个列表的顺序为： Comparator.naturalOrder() 正序；Comparator.reverseOrder() 反序
+            Comparator.comparing(a -> a, Comparator.nullsLast(Comparator.naturalOrder()))
         ).collect(Collectors.toList());
-        aList.forEach(a->{
-        if(a!=null){
-        System.out.printf("%4d",a);
-        }else{
-        System.out.printf("%8s",a);
-        }
+        
+        aList.forEach(a -> {
+            if (a != null) {
+                System.out.printf("%4d", a);
+            } else {
+                System.out.printf("%8s", a);
+            }
         });
         System.out.println();
-        }
+    }
 ```
 
 这样，我们就可以实现按照空值在前或者空值在后实现排序：
@@ -183,28 +184,28 @@ public void listNullTest(){
 
 ```java
     @Test
-public void listInSomeOrderTest(){
-        List<String> seasons=new ArrayList<>();
+    public void listInSomeOrderTest() {
+        List<String> seasons = new ArrayList<>();
         seasons.add("夏");
         seasons.add("冬");
         seasons.add("春");
         seasons.add("秋");
 
         System.out.println("排序前：");
-        seasons.forEach(s->System.out.printf("%4s",s));
+        seasons.forEach(s -> System.out.printf("%4s", s));
         System.out.println("\n一般排序后：");
-        seasons=seasons.stream().sorted().collect(Collectors.toList());
-        seasons.forEach(s->System.out.printf("%4s",s));
+        seasons = seasons.stream().sorted().collect(Collectors.toList());
+        seasons.forEach(s -> System.out.printf("%4s", s));
         System.out.println();
 
         // 固定顺序
-        List<String> theOrders=Arrays.asList("春","夏","秋","冬");
+        List<String> theOrders = Arrays.asList("春", "夏", "秋", "冬");
         // 按照 theOrders 排序
-        seasons=seasons.stream().sorted(Comparator.comparing(theOrders::indexOf)).collect(Collectors.toList());
+        seasons = seasons.stream().sorted(Comparator.comparing(theOrders::indexOf)).collect(Collectors.toList());
         System.out.println("按照固定顺序排序后：");
-        seasons.forEach(s->System.out.printf("%4s",s));
+        seasons.forEach(s -> System.out.printf("%4s", s));
         System.out.println();
-        }
+    }
 ```
 
 这样就可以按照我们想法进行排序：
@@ -224,88 +225,87 @@ public void listInSomeOrderTest(){
 即为：查一批数据，同时按照年龄升序排列以及薪水倒序排列。想必在脑子里你已经写完这段 SQL 了，不过今天我们不写 SQL，同样地，先建一批数据：
 
 ```java
-
-private List<Worker> getTestDatas(){
-        List<Worker> workers=new ArrayList<>();
-        workers.add(new Worker(){{
-        setId(1);
-        setAge(20);
-        setSalary(1000);
+    private List<Worker> getTestDatas() {
+        List<Worker> workers = new ArrayList<>();
+        workers.add(new Worker() {{
+            setId(1);
+            setAge(20);
+            setSalary(1000);
         }});
-        workers.add(new Worker(){{
-        setId(2);
-        setAge(22);
-        setSalary(1200);
+        workers.add(new Worker() {{
+            setId(2);
+            setAge(22);
+            setSalary(1200);
         }});
-        workers.add(new Worker(){{
-        setId(3);
-        setAge(20);
-        setSalary(800);
+        workers.add(new Worker() {{
+            setId(3);
+            setAge(20);
+            setSalary(800);
         }});
-        workers.add(new Worker(){{
-        setId(4);
-        setAge(20);
-        setSalary(700);
+        workers.add(new Worker() {{
+            setId(4);
+            setAge(20);
+            setSalary(700);
         }});
-        workers.add(new Worker(){{
-        setId(5);
-        setAge(22);
-        setSalary(1800);
+        workers.add(new Worker() {{
+            setId(5);
+            setAge(22);
+            setSalary(1800);
         }});
-        workers.add(new Worker(){{
-        setId(6);
-        setAge(21);
-        setSalary(1100);
+        workers.add(new Worker() {{
+            setId(6);
+            setAge(21);
+            setSalary(1100);
         }});
-        workers.add(new Worker(){{
-        setId(7);
-        setAge(22);
-        setSalary(1600);
+        workers.add(new Worker() {{
+            setId(7);
+            setAge(22);
+            setSalary(1600);
         }});
-        workers.add(new Worker(){{
-        setId(8);
-        setAge(21);
-        setSalary(1200);
+        workers.add(new Worker() {{
+            setId(8);
+            setAge(21);
+            setSalary(1200);
         }});
-        workers.add(new Worker(){{
-        setId(9);
-        setAge(20);
-        setSalary(600);
+        workers.add(new Worker() {{
+            setId(9);
+            setAge(20);
+            setSalary(600);
         }});
-        workers.add(new Worker(){{
-        setId(10);
-        setAge(20);
-        setSalary(1200);
+        workers.add(new Worker() {{
+            setId(10);
+            setAge(20);
+            setSalary(1200);
         }});
-        workers.add(new Worker(){{
-        setId(11);
-        setAge(21);
-        setSalary(1500);
+        workers.add(new Worker() {{
+            setId(11);
+            setAge(21);
+            setSalary(1500);
         }});
-        workers.add(new Worker(){{
-        setId(12);
-        setAge(20);
-        setSalary(400);
+        workers.add(new Worker() {{
+            setId(12);
+            setAge(20);
+            setSalary(400);
         }});
-        workers.add(new Worker(){{
-        setId(13);
-        setAge(20);
-        setSalary(1100);
+        workers.add(new Worker() {{
+            setId(13);
+            setAge(20);
+            setSalary(1100);
         }});
-        workers.add(new Worker(){{
-        setId(14);
-        setAge(21);
-        setSalary(1500);
+        workers.add(new Worker() {{
+            setId(14);
+            setAge(21);
+            setSalary(1500);
         }});
-        workers.add(new Worker(){{
-        setId(15);
-        setAge(21);
-        setSalary(1600);
+        workers.add(new Worker() {{
+            setId(15);
+            setAge(21);
+            setSalary(1600);
         }});
         return workers;
-        }
+    }
 
-@Data
+@Data 
 private static class Worker {
     /**
      * ID
@@ -333,28 +333,28 @@ private static class Worker {
 
 ```java
 
-@Test
-public void listWithFieldsTest()throws JsonProcessingException{
+    @Test
+    public void listWithFieldsTest() throws JsonProcessingException {
         // 根据年纪升序，根据薪水降序，得到一个有序的列表
         // 排序条件逆序设置：先排序的条件放在后面，后排序的条件放前面
-        ObjectMapper objectMapper=new ObjectMapper();
-        List<Worker> testWorkers=getTestDatas();
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<Worker> testWorkers = getTestDatas();
         // 原顺序
         System.out.println("排序前：");
-        for(Worker testWorker:testWorkers){
-        System.out.println(objectMapper.writeValueAsString(testWorker));
+        for (Worker testWorker : testWorkers) {
+            System.out.println(objectMapper.writeValueAsString(testWorker));
         }
         // 排序后
-        List<Worker> sortedWorkers=testWorkers.stream()
-        // 薪水倒序
-        .sorted(Comparator.comparing(Worker::getSalary,Comparator.reverseOrder()))
-        .sorted(Comparator.comparing(Worker::getAge))
-        .collect(Collectors.toList());
+        List<Worker> sortedWorkers = testWorkers.stream()
+            // 薪水倒序
+            .sorted(Comparator.comparing(Worker::getSalary, Comparator.reverseOrder()))
+            .sorted(Comparator.comparing(Worker::getAge))
+            .collect(Collectors.toList());
         System.out.println("排序后：");
-        for(Worker sortedWorker:sortedWorkers){
-        System.out.println(objectMapper.writeValueAsString(sortedWorker));
+        for (Worker sortedWorker : sortedWorkers) {
+            System.out.println(objectMapper.writeValueAsString(sortedWorker));
         }
-        }
+    }
 ```
 
 然后，结果如预期：
