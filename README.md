@@ -41,6 +41,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [由 LeetCode 题目：Single Number 初见位运算](https://github.com/lq920320/blogs/issues/32)
 1. [了解一下栈吧：最近杠上了计算器](https://github.com/lq920320/blogs/blob/master/articles/algorithm/leetcode_stack.md)
 1. [个人算法实现代码仓库](https://github.com/lq920320/algorithm-java-test)
+1. [解题算法之——双指针](https://github.com/lq920320/blogs/blob/master/articles/algorithm/double-pointer.md)
 
 ## :page_facing_up: 翻译
 1. [机器学习的第一篇翻译](https://github.com/lq920320/blogs/issues/2)
