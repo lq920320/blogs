@@ -69,6 +69,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
 1. [Elasticsearch 错误日志为乱码的问题](https://github.com/lq920320/blogs/issues/7)
 1. [个人常用工具汇总&记录](https://github.com/lq920320/blogs/blob/master/articles/personal-tools.md)
+1. [Elasticsearch 不完全入门指北系列（一）：介绍与安装]()
 
 ## :notebook: 读书笔记
 
