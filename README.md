@@ -31,11 +31,12 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 ## :floppy_disk: 数据库
 1. [mysql查询合并查询结果](https://github.com/lq920320/blogs/issues/8)
-1. [MySql:当两个表的字符集不同时的关联方法](https://github.com/lq920320/blogs/issues/11) 
-1. [Mysql:如何获取数据库表的数据大小](https://github.com/lq920320/blogs/issues/15)
-1. [关于mysql自增主键的一个面试题](https://github.com/lq920320/blogs/issues/23)
-1. [MySQL中关于事务和锁](https://github.com/lq920320/blogs/issues/25) 
-1. [MySQL索引知多少](https://github.com/lq920320/blogs/issues/26)
+2. [MySql:当两个表的字符集不同时的关联方法](https://github.com/lq920320/blogs/issues/11) 
+3. [Mysql:如何获取数据库表的数据大小](https://github.com/lq920320/blogs/issues/15)
+4. [关于mysql自增主键的一个面试题](https://github.com/lq920320/blogs/issues/23)
+5. [MySQL中关于事务和锁](https://github.com/lq920320/blogs/issues/25) 
+6. [MySQL索引知多少](https://github.com/lq920320/blogs/issues/26)
+7. [TSDB系列（一）：什么是时序数据库]()
 
 ## :pencil: 算法
 1. [由 LeetCode 题目：Single Number 初见位运算](https://github.com/lq920320/blogs/issues/32)
