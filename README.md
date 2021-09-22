@@ -36,7 +36,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 4. [关于mysql自增主键的一个面试题](https://github.com/lq920320/blogs/issues/23)
 5. [MySQL中关于事务和锁](https://github.com/lq920320/blogs/issues/25) 
 6. [MySQL索引知多少](https://github.com/lq920320/blogs/issues/26)
-7. [TSDB系列（一）：什么是时序数据库]()
+7. [TSDB系列（一）：什么是时序数据库](https://github.com/lq920320/blogs/blob/master/articles/tsdb/TSDB%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93.md)
 
 ## :pencil: 算法
 1. [由 LeetCode 题目：Single Number 初见位运算](https://github.com/lq920320/blogs/issues/32)
