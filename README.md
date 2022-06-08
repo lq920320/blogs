@@ -28,6 +28,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 16. [Lombok 中 `@Accessor` 属性的用法](https://github.com/lq920320/blogs/blob/master/articles/lombok-accessor-use.md)
 17. [有趣的 `sorted()`](https://github.com/lq920320/blogs/blob/master/articles/java/fun-sorted-in-java8.md)
 18. [钉钉群聊实现@人接入与代码开发](https://github.com/lq920320/blogs/blob/master/articles/java/%E9%92%89%E9%92%89%E7%BE%A4%E8%81%8A%E5%AE%9E%E7%8E%B0%40%E4%BA%BA%E6%8E%A5%E5%85%A5%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91.md)
+19. [Java基础（一）：类型转换]()
 
 
 ## :floppy_disk: 数据库
