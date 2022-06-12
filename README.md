@@ -30,6 +30,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 18. [钉钉群聊实现@人接入与代码开发](https://github.com/lq920320/blogs/blob/master/articles/java/%E9%92%89%E9%92%89%E7%BE%A4%E8%81%8A%E5%AE%9E%E7%8E%B0%40%E4%BA%BA%E6%8E%A5%E5%85%A5%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91.md)
 19. [Java基础（一）：类型转换](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.md)
 20. [Java基础（二）：Getters 和 Setters](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9AGetters%20%E5%92%8C%20Setters.md)
+21. [Java基础（三）：引用数据类型]()
 
 
 ## :floppy_disk: 数据库
