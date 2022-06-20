@@ -31,7 +31,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 19. [Java基础（一）：类型转换](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.md)
 20. [Java基础（二）：Getters 和 Setters](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9AGetters%20%E5%92%8C%20Setters.md)
 21. [Java基础（三）：引用数据类型](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
-22. [Java基础（四）：Java 编译器-Javac]()
+22. [Java基础（四）：Java 编译器-Javac](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9AJava%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E2%80%98Javac%E2%80%99.md)
 
 
 ## :floppy_disk: 数据库
