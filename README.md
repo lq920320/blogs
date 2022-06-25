@@ -120,6 +120,6 @@ Here will record my blog about the study of new tech or how to solve problems I 
 13. [Bug 是怎么来的](https://github.com/lq920320/blogs/blob/master/articles/jokes/Bug%20%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84.md)
 14. [M1 安装日志（一）：基础开发软件列表](https://github.com/lq920320/blogs/blob/master/articles/other/m1-softwares-for-development-1.md)
 15. [git stash 的用法](https://github.com/lq920320/blogs/blob/master/articles/other/git-stash.md)
-16. [仿生人会梦到电子羊吗？]()
+16. [仿生人会梦到电子羊吗？](https://github.com/lq920320/blogs/blob/master/articles/other/%E4%BB%BF%E7%94%9F%E4%BA%BA%E4%BC%9A%E6%A2%A6%E5%88%B0%E7%94%B5%E5%AD%90%E7%BE%8A%E5%90%97%EF%BC%9F.md)
 
 
