@@ -97,12 +97,13 @@ Here will record my blog about the study of new tech or how to solve problems I 
 
 ## :wrench: DevOps
 
-- [ ] 1. DevOps 落地实践（一）：CI、CD 与 DevOps 是什么？
-- [ ] 2. DevOps 落地实践（二）：Docker 篇
-- [ ] 3. DevOps 落地实践（三）：Kubernetes(k8s) 篇
-- [ ] 4. DevOps 落地实践（四）：Jenkins 篇
-- [ ] 5. DevOps 落地实践（五）：GitLab runner 篇
-- [ ] 6. DevOps 落地实践（六）：GitHub Action 篇
+- [ ] 1. DevOps 落地实践-00：云原生是什么？
+- [ ] 2. DevOps 落地实践-01：CI、CD 与 DevOps 是什么？
+- [ ] 3. DevOps 落地实践-02：Docker 篇
+- [ ] 4. DevOps 落地实践-03：Kubernetes(k8s) 篇
+- [ ] 5. DevOps 落地实践-04：Jenkins 篇
+- [ ] 6. DevOps 落地实践-05：GitLab runner 篇
+- [ ] 7. DevOps 落地实践-06：GitHub Action 篇
 
 ## :notebook: 其他
 
