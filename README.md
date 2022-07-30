@@ -82,7 +82,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 6. [Elasticsearch 不完全入门指北系列（三）：项目搭建](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.md)
 7. [Elasticsearch 不完全入门指北系列（四）：组合搜索](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E7%BB%84%E5%90%88%E6%90%9C%E7%B4%A2.md)
 8. [Elasticsearch 不完全入门指北系列（五）：聚合搜索](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E8%81%9A%E5%90%88%E6%90%9C%E7%B4%A2.md)
-9. [Elasticsearch不完全入门指北系列（六）：管道聚合（Pipeline Aggregations）]()
+9. [Elasticsearch不完全入门指北系列（六）：管道聚合（Pipeline Aggregations）](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E7%AE%A1%E9%81%93%E8%81%9A%E5%90%88%EF%BC%88pipeline%20aggregations%EF%BC%89.md)
 
 ## :notebook: 读书笔记
 
