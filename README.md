@@ -37,7 +37,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 25. [Java基础-006：StringBuffer、StringBuilder和StringTokenizer](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80-006%EF%BC%9AStringBuffer%E3%80%81StringBuilder%E5%92%8CStringTokenizer.md)
 26. [Java基础-007：日期类](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80-007%EF%BC%9A%E6%97%A5%E6%9C%9F%E7%B1%BB.md)
 27. [Java基础-008：Date和Time](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80-008%EF%BC%9ADate%E5%92%8CTime.md)
-28. [Java基础-009：LocalTime](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80-008%EF%BC%9ADate%E5%92%8CTime.md)
+28. [Java基础-009：LocalTime](https://github.com/lq920320/blogs/blob/master/articles/java/Java%E5%9F%BA%E7%A1%80-009%EF%BC%9ALocalTime.md)
 
 
 ## :floppy_disk: 数据库
