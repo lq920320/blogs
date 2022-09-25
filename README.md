@@ -82,12 +82,13 @@ Here will record my blog about the study of new tech or how to solve problems I 
 1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
 2. [Elasticsearch 错误日志为乱码的问题](https://github.com/lq920320/blogs/issues/7)
 3. [个人常用工具汇总&记录](https://github.com/lq920320/blogs/blob/master/articles/personal-tools.md)
-4. [Elasticsearch 不完全入门指北系列（一）：介绍与安装](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85.md)
-5. [Elasticsearch 不完全入门指北系列（二）：概念介绍与 DSL](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%20%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E6%A6%82%E5%BF%B5%E4%BB%8B%E7%BB%8D%E4%B8%8E%20DSL.md)
-6. [Elasticsearch 不完全入门指北系列（三）：项目搭建](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.md)
-7. [Elasticsearch 不完全入门指北系列（四）：组合搜索](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9A%E7%BB%84%E5%90%88%E6%90%9C%E7%B4%A2.md)
-8. [Elasticsearch 不完全入门指北系列（五）：聚合搜索](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E8%81%9A%E5%90%88%E6%90%9C%E7%B4%A2.md)
-9. [Elasticsearch不完全入门指北系列（六）：管道聚合（Pipeline Aggregations）](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch%E4%B8%8D%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97%E7%B3%BB%E5%88%97%EF%BC%88%E5%85%AD%EF%BC%89%EF%BC%9A%E7%AE%A1%E9%81%93%E8%81%9A%E5%90%88%EF%BC%88pipeline%20aggregations%EF%BC%89.md)
+4. [Elasticsearch 不完全入门指北系列（一）：介绍与安装]()
+5. [Elasticsearch 不完全入门指北系列（二）：概念介绍与 DSL]()
+6. [Elasticsearch 不完全入门指北系列（三）：项目搭建]()
+7. [Elasticsearch 不完全入门指北系列（四）：组合搜索]()
+8. [Elasticsearch 不完全入门指北系列（五）：聚合搜索]()
+9. [Elasticsearch不完全入门指北系列（六）：管道聚合（Pipeline Aggregations）]()
+10. [Elasticsearch 不完全入门指北系列（七）：排序]()
 
 ## :notebook: 读书笔记
 
