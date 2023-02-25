@@ -73,7 +73,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 15. [渣翻：GraphQL 相对于 REST 的优势](https://github.com/lq920320/blogs/blob/master/articles/translation/graphql-vs-rest-whats-the-advantage.md)
 16. [渣翻：Dockerfile 安全性最佳实践](https://github.com/lq920320/blogs/blob/master/articles/translation/dockerfile-security-best-practice.md)
 17. [渣翻：由两分钟规则开始 ](https://github.com/lq920320/blogs/blob/master/articles/translation/2-minute-rule.md)
-18. [渣翻：从 Java 8 到 Java 15 的新语言特性](https://github.com/lq920320/blogs/blob/master/articles/translation/new-language-features-since-java-8-to-15.md)
+18. [渣翻：从 Java 8 到 Java 18 的新语言特性](https://github.com/lq920320/blogs/blob/master/articles/translation/new-language-features-since-java-8-to-18.md)
 19. [渣翻：如何清理 Docker 数据](https://github.com/lq920320/blogs/blob/master/articles/translation/clean-up-docker.md)
 20. [渣翻：作为终生程序员的一些教训](https://github.com/lq920320/blogs/blob/master/articles/translation/lessons-of-being-programmer.md)
 21. [渣翻：《The Pragmatic Programmer》中我最喜欢的9个主题](https://github.com/lq920320/blogs/blob/master/articles/translation/my-9-favorite-topics-of-the-pragmatic-programmer.md)
