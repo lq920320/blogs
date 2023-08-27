@@ -104,7 +104,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 8. [《软件设计的哲学》（一）：命名](https://github.com/lq920320/blogs/blob/master/articles/notes/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%93%B2%E5%AD%A6-01%EF%BC%9A%E5%91%BD%E5%90%8D.md)
 9. [《软件设计的哲学》（二）：注释](https://github.com/lq920320/blogs/blob/master/articles/notes/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%93%B2%E5%AD%A6-02%EF%BC%9A%E6%B3%A8%E9%87%8A.md)
 10. [《软件设计的哲学》（三）：总结](https://github.com/lq920320/blogs/blob/master/articles/notes/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%93%B2%E5%AD%A6-03%EF%BC%9A%E6%80%BB%E7%BB%93.md)
-11. [高性能MySQL：从回表说起]()
+11. [高性能MySQL：从回表说起](https://github.com/lq920320/blogs/blob/master/articles/notes/%E9%AB%98%E6%80%A7%E8%83%BDMySQL%EF%BC%9A%E4%BB%8E%E5%9B%9E%E8%A1%A8%E8%AF%B4%E8%B5%B7.md)
 
 ## :wrench: DevOps
 
