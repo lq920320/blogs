@@ -81,7 +81,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 23. [渣翻：分布式系统的设计模式](https://github.com/lq920320/blogs/blob/master/articles/translation/design-patterns-for-distributed-system.md)
 
 ## :wrench: 工具
-1. [Superset使用手册](https://github.com/lq920320/blogs/issues/5)
+1. - [ ] Superset使用手册
 2. [Elasticsearch 错误日志为乱码的问题](https://github.com/lq920320/blogs/issues/7)
 3. [个人常用工具汇总&记录](https://github.com/lq920320/blogs/blob/master/articles/personal-tools.md)
 4. [Elasticsearch 不完全入门指北系列（一）：介绍与安装](https://github.com/lq920320/blogs/blob/master/articles/elasticsearch/Elasticsearch-01%EF%BC%9A%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85.md)
@@ -112,10 +112,10 @@ Here will record my blog about the study of new tech or how to solve problems I 
 2. [DevOps系列-01：CI、CD 与 DevOps 是什么？](https://github.com/lq920320/blogs/blob/master/articles/devops/DevOps%E7%B3%BB%E5%88%97-01%EF%BC%9ACI%E3%80%81CD%20%E4%B8%8E%20DevOps%20%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F.md)
 3. [DevOps系列-02：Docker 篇](https://github.com/lq920320/blogs/blob/master/articles/devops/DevOps%E7%B3%BB%E5%88%97-02%EF%BC%9ADocker%20%E7%AF%87.md)
 4. [DevOps系列-03：什么是容器编排](https://github.com/lq920320/blogs/blob/master/articles/devops/DevOps%E7%B3%BB%E5%88%97-03%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92.md)
-- [ ] 5. DevOps系列-04：Kubernetes(k8s) 篇
-- [ ] 6. DevOps系列-05：Jenkins 篇
-- [ ] 7. DevOps系列-06：GitLab runner 篇
-- [ ] 8. DevOps系列-07：GitHub Action 篇
+5. - [ ] DevOps系列-04：Kubernetes(k8s) 篇
+6. - [ ] DevOps系列-05：Jenkins 篇
+7. - [ ] DevOps系列-06：GitLab runner 篇
+8. - [ ] DevOps系列-07：GitHub Action 篇
 
 ## :notebook: 其他
 

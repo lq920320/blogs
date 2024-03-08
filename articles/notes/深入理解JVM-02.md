@@ -12,11 +12,11 @@
 
 ![](images/object_layout.png)
 
-<center>图1 对象的内存布局</center>
+<center>图2 对象的内存布局</center>
 
 ![](images/object_reference.png)
 
-<center>图1 对象的访问定位</center>
+<center>图3 对象的访问定位</center>
 
 系列上一篇介绍了运行时数据区之后，我们大致知道了虚拟机内存的概况。本篇呢，就大概介绍一下关于内存的使用——对象的创建。上面的图片为本章内容的总结，想要节省时间的同学只需了解图片内容即可。
 
