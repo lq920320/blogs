@@ -136,7 +136,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 15. [git stash 的用法](https://github.com/lq920320/blogs/blob/master/articles/other/git-stash.md)
 16. [仿生人会梦到电子羊吗？](https://github.com/lq920320/blogs/blob/master/articles/other/%E4%BB%BF%E7%94%9F%E4%BA%BA%E4%BC%9A%E6%A2%A6%E5%88%B0%E7%94%B5%E5%AD%90%E7%BE%8A%E5%90%97%EF%BC%9F.md)
 17. [从拜占庭将军问题到分布式系统的一致性](https://github.com/lq920320/blogs/blob/master/articles/other/byzantine-problem.md)
-18. [计算机科普：`TTY` 是什么？]()
-19. [网站推荐：如何用 AI 快速制作一个午餐选择器？]()
+18. [计算机科普：`TTY` 是什么？](https://github.com/lq920320/blogs/blob/master/articles/other/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E6%99%AE%EF%BC%9ATTY%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F.md)
+19. [网站推荐：如何用 AI 快速制作一个午餐选择器？](https://github.com/lq920320/blogs/blob/master/articles/other/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90%EF%BC%9A%E5%A6%82%E4%BD%95%E7%94%A8%20AI%20%E5%BF%AB%E9%80%9F%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AA%E5%8D%88%E9%A4%90%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%9F.md)
 
 
