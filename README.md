@@ -79,6 +79,7 @@ Here will record my blog about the study of new tech or how to solve problems I 
 21. [渣翻：《The Pragmatic Programmer》中我最喜欢的9个主题](https://github.com/lq920320/blogs/blob/master/articles/translation/my-9-favorite-topics-of-the-pragmatic-programmer.md)
 22. [渣翻：Web 应用 101](https://github.com/lq920320/blogs/blob/master/articles/translation/web-application-101.md)
 23. [渣翻：分布式系统的设计模式](https://github.com/lq920320/blogs/blob/master/articles/translation/design-patterns-for-distributed-system.md)
+24. [渣翻：软件开发算法](https://github.com/lq920320/blogs/blob/master/articles/translation/software-pathfinding.md)
 
 ## :wrench: 工具
 1. - [ ] Superset使用手册
